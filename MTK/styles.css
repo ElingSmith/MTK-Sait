@@ -1,0 +1,534 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Шапка сайта */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(34, 34, 34, 0.9);
+    padding: 15px 30px;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+#categories {
+    margin-top: 80px;
+}
+
+.logo img {
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #f1c40f;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* Иконка бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Блок */
+.hero {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+hero .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Изменено с 100% на auto */
+    margin-top: 30px;
+}
+
+.search-box input {
+    padding: 15px 20px;
+    width: 300px; /* Установлена фиксированная ширина */
+    border: none;
+    border-radius: 50px 0 0 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+}
+
+.search-box input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.search-box button {
+    padding: 15px 30px;
+    background-color: #f1c40f;
+    border: none;
+    border-radius: 0 50px 50px 0; /* Закругление только правой части */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #e2b109;
+}
+
+/* Категории */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0;
+    background-color: #222;
+}
+
+.category {
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #f1c40f;
+    border-radius: 25px;
+}
+
+/* Разделы популярных товаров*/
+.popular-tech, .attachments {
+    text-align: center;
+    padding: 70px 0;
+    background-color: #111;
+}
+
+.popular-tech h2, .attachments h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    color: #e3c238;
+    color: #e3c238;
+}
+
+/* Контейнер для карточек продуктов */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*стиль карточек продуктов */
+.tech-item, .attachment-item {
+    background: linear-gradient(145deg, #333, #111);
+    margin: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    display: inline-block;
+    width: 280px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+@media (max-width: 992px) {
+    .tech-item, .attachment-item {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-item, .attachment-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-item, .attachment-item {
+        width: 100%;
+    }
+}
+
+.tech-item::before, .attachment-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(241, 196, 15, 0.1); /* Цвет полупрозрачной подсветки */
+    transition: opacity 0.5s ease; /* Плавная анимация */
+    opacity: 0; /* Начальная прозрачность */
+}
+
+.tech-item:hover::before, .attachment-item:hover::before {
+    opacity: 1; /* Полная видимость при наведении */
+}
+
+
+
+
+.tech-item:hover, .attachment-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(241, 196, 15, 0.3);
+}
+
+.tech-item h3, .attachment-item h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #f1c40f;
+    transition: color 0.3s ease;
+}
+
+.tech-item p, .attachment-item p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.tech-item img, .attachment-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover img, .attachment-item:hover img {
+    transform: scale(1.1);
+}
+
+.tech-item button, .attachment-item button {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1a1a;
+    background-color: #f1c40f;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-item button:hover, .attachment-item button:hover {
+    background-color: #e2b109;
+    transform: scale(1.05);
+}
+
+/* эффекты при наведении на карточки продуктов */
+.tech-item:hover h3, .attachment-item:hover h3 {
+    color: #fff;
+}
+
+.tech-item:hover p, .attachment-item:hover p {
+    color: #eee;
+}
+
+/* Результаты поиска */
+.search-results {
+    text-align: center;
+    margin: 40px 0;
+    color: #f1c40f;
+}
+
+.search-results h2 {
+    font-size: 28px;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+    .logo img {
+        width: 100px;
+    }
+    .navbar {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    .header-contact {
+        display: none;
+    }
+    .hero h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    .search-box {
+        flex-direction: column; /* Размещаем элементы вертикально */
+        width: 100%; /* Строка поиска занимает всю ширину */
+        max-width: none; /* Отменяем ограничение максимальной ширины */
+    }
+    .search-box input {
+        width: 100%;
+        border-radius: 50px; /* Полностью закругляем */
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+    .search-box button {
+        width: 100%;
+        border-radius: 50px; /* Полностью закругляем */
+        margin-left: 0; /* Отменяем отступ слева */
+    }
+    .category {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+        flex-direction: column;
+    }
+    .logo img {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+    .hero h1 {
+        font-size: 32px;
+    }
+    .search-box input {
+        font-size: 14px;
+    }
+    .search-box button {
+        font-size: 14px;
+    }
+    .category {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .popular-tech h2, .attachments h2 {
+        font-size: 28px;
+    }
+}
+
+/* Стили для открытого меню */
+.navbar.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.9);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.navbar.open a {
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+}
+
+/* Стили для анимации бургер-меню */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Стили для подвала */
+
+.container{
+  max-width: 1170px;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul{
+  list-style: none;
+}
+.footer{
+  background-color: #333333;
+  padding: 50px 0;
+}
+.footer-col{
+  width: 33%;
+  padding:0 40px;
+}
+.footer-col h4{
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  font-weight: 0;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left: 100px;
+  bottom: -10px;
+  background-color: #e2b109;
+  height: 2px;
+  box-sizing: border-box;
+  width: 100px;
+}
+
+.footer-col i{
+  color: #e2b109;
+  font-size: 15px;
+  margin-top: 4px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li{
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+  color: #ffffff;
+  padding-left: 5px;
+}
+.footer-col .social-links a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+  }
+}

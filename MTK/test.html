@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Content with Animation</title>
+<style>
+  /* Основной стиль контейнера */
+  .content-wrapper {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease; /* Плавная анимация */
+  }
+  /* Стиль для видимого состояния */
+  .content-wrapper.open {
+    max-height: 500px; /* Указываем примерное значение, достаточное для большинства текстов */
+  }
+  .content {
+    padding: 20px;
+    background: #f1f1f1;
+  }
+  /* Кнопка для переключения */
+  .toggle-btn {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>Плавная анимация разворачивания и сворачивания контента</h2>
+
+<!-- Кнопка переключения -->
+<button class="toggle-btn">Показать больше</button>
+
+<!-- Контейнер для анимации -->
+<div class="content-wrapper" id="contentWrapper">
+  <div class="content">
+    <p>
+      Это пример контента. Здесь можно разместить любой текст, изображения или другие элементы.
+      Если текста много, он автоматически подстроится под контейнер.
+      Плавная анимация сделает переход между состояниями более приятным для глаз.
+    </p>
+  </div>
+</div>
+
+<script>
+  // Обработчик клика для кнопки
+  document.querySelector('.toggle-btn').addEventListener('click', function() {
+    const contentWrapper = document.getElementById('contentWrapper');
+    contentWrapper.classList.toggle('open'); // Переключаем класс
+
+    // Изменяем текст кнопки в зависимости от состояния
+    this.textContent = contentWrapper.classList.contains('open') ? 'Скрыть' : 'Показать больше';
+  });
+</script>
+
+</body>
+</html>

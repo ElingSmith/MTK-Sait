@@ -1,0 +1,302 @@
+.blok_o_nas {
+    background-color: #222; /* Фон всей секции */
+    color: #fff; /* Основной цвет текста */
+    height: auto; /* Высота секции автоматически подстраивается под содержимое */
+    display: flex; /* Включаем Flexbox для расположения контента */
+    align-items: flex-start; /* Выравнивание контента по верхнему краю */
+    justify-content: center; /* Центрирование контента по горизонтали */
+    padding: 50px 0; /* Добавлен отступ сверху и снизу */
+}
+
+.spacer {
+    background-color: #222; /* Цвет фона для пространства между секциями */
+    height: 100px; /* Высота отступа */
+}
+
+.blok-content {
+    display: flex; /* Включаем Flexbox для расположения элементов бок о бок */
+    width: 90%; /* Ширина контейнера */
+    max-width: 1200px; /* Ограничение максимальной ширины */
+    max-height: 700px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Тень для создания глубины */
+    border-radius: 20px; /* Закругленные углы */
+    overflow: hidden; /* Обрезка содержимого по границам */
+}
+
+.sidebar {
+    flex: 1; /* Задает ширину блока, занимает 1 часть из 4 */
+    display: flex; /* Включаем Flexbox для вертикального расположения кнопок */
+    flex-direction: column; /* Размещает кнопки по вертикали */
+    background-color: #444; /* Фон левой панели */
+    padding: 20px; /* Внутренний отступ */
+    justify-content: flex-start; /* Выравнивание кнопок по верхнему краю */
+    align-items: flex-start; /* Выравнивание кнопок по левому краю */
+}
+
+.sidebar button {
+    margin: 10px 0; /* Отступы сверху и снизу для кнопок */
+    padding: 15px; /* Внутренний отступ кнопок */
+    width: 100%; /* Кнопки занимают всю ширину */
+    font-size: 20px; /* Размер текста кнопок */
+    color: #ffffff; /* Цвет текста кнопок */
+    background-color: rgba(23, 23, 23, 0.4); /* Основной цвет кнопок */
+    border: none; /* Убираем стандартную границу */
+    border-radius: 15px; /* Закругленные углы кнопок */
+    cursor: pointer; /* Изменение курсора при наведении */
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+    background-color: #e8ad19; /* Цвет фона при наведении и активном состоянии */
+    color: #000000; /* Цвет текста кнопок */
+}
+
+.content-display {
+    flex: 3;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    background-color: #333;
+    max-height: 0; /* Начальная высота блока для анимации */
+    overflow: hidden; /* Обрезка содержимого по границам */
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Плавный переход для изменения высоты и прозрачности */
+}
+
+.active_on_nas {
+    max-height: 1000px; /* Увеличена высота для поддержки большего контента */
+    opacity: 1; /* Полная непрозрачность при активном состоянии */
+}
+
+.content-display h1 {
+    font-size: 28px; /* Размер шрифта заголовка */
+    margin-bottom: 20px; /* Отступ снизу от заголовка */
+}
+
+
+.content-display p {
+    font-size: 18px; /* Размер текста */
+    line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+}
+
+
+.text_o_nas p{
+
+    font-size: 22px; /* Размер текста */
+    line-height: 2; /* Межстрочный интервал для лучшей читаемости */
+    margin-bottom: 20px;
+}
+
+.text_o_nas h1{
+    text-align: center;
+    font-size: 30px; /* Размер текста */
+    line-height: 2.5; /* Межстрочный интервал для лучшей читаемости */
+    color: #E8AD19FF;
+}
+
+.text_o_nas ul li{
+    font-size: 22px; /* Размер текста */
+    line-height: 2.5; /* Межстрочный интервал для лучшей читаемости */
+    margin-left: 20px; /* Отступ слева */
+
+}
+
+.pustota{
+    margin-bottom: 40px; /* Увеличьте или уменьшите значение по необходимости */
+
+}
+
+.text_o_nas p strong, ul li strong{
+        color: rgb(232, 198, 25);
+
+}
+
+
+
+
+/* ------- Адаптация для мобильных устройств ------- */
+@media (max-width: 768px) {
+    /* Изменяем направление flex-контейнера на колонку */
+    .blok-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Сайдбар занимает всю ширину */
+    .sidebar {
+        width: 100%;
+        align-items: center; 
+        padding: 15px;
+    }
+
+    /* Кнопки сайдбара */
+    .sidebar button {
+        width: 80%; /* Кнопки занимают 80% ширины */
+        font-size: 18px;
+    }
+
+    /* Контентная часть также занимает всю ширину */
+    .content-display {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Размеры текста */
+    .content-display h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .content-display p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Уменьшаем отступы и размеры для маленьких экранов */
+    .sidebar button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .content-display {
+        padding: 15px;
+    }
+
+    .content-display h1 {
+        font-size: 20px;
+    }
+
+    .content-display p {
+        font-size: 14px;
+    }
+}
+
+/* Иконка бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при открытии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Стили для открытого меню на мобильных устройствах */
+.navbar.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.95);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 999;
+}
+
+.navbar.open a {
+    padding: 15px 0;
+    margin: 0;
+    border-bottom: 1px solid #333;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    .header-contact {
+        display: none;
+    }
+}
+
+
+/* Иконка бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при открытии */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Стили для открытого меню на мобильных устройствах */
+.navbar.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Высота шапки */
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.95);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 999;
+}
+
+.navbar.open a {
+    padding: 15px 0;
+    margin: 0;
+    border-bottom: 1px solid #333;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    .header-contact {
+        display: none;
+    }
+}

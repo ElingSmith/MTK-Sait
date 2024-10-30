@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали товара | MTK</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Логотип MTK">
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Главная</a>
+            <a href="cart.html">О нас</a>
+        </nav>
+    </header>
+
+    <section class="product-details">
+        <h1 id="product-name"></h1>
+        <img id="product-image" alt="Изображение товара" class="product-image">
+        <p id="product-price"></p>
+        <p id="product-description"></p>
+        <button onclick="addToCart()" class="add-to-cart-button">Добавить в корзину</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

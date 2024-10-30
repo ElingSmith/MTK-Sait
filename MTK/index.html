@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTK - Премиальная спецтехника</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Логотип MTK">
+
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Главная</a>
+            <a href="o_nas.html">О нас</a>
+            <a href="#">Контакты</a>
+            <a href="cart.html">Корзина</a>
+        </nav>
+        <div class="header-contact">
+            <p>Телефон: +8 800 000 33 45</p>
+        </div>
+        <!-- бургер-меню -->
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+
+    <section id="categories" class="categories">
+        <div class="category">Спецтехника</div>
+        <div class="category">Навесное оборудование</div>
+        <div class="category">Коммерческие автомобили</div>
+        <div class="category">Нерудные материалы</div>
+        <div class="category">Вывоз Грунта</div>
+    </section>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Откройте мир возможностей с продукцией компании МТК</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск техники...">
+                <button onclick="searchItems()">Поиск</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Результаты поиска -->
+    <section id="searchResults" class="search-results">
+        <h2 id="searchResultMessage"></h2>
+    </section>
+
+
+    <section  id="popularTech" class="popular-tech">
+        <h2>Популярная техника</h2>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Загаловок</h4>
+            <ul>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О компании</a></li>
+              <li><a href="#">Каталог</a></li>
+              <li><a href="#">Корзина</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Связаться с нами</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>  Московская область, Раменский район на территории "ПРОМПАРК А107" </li>
+              <li> <a href="88005117008"> <i class="fas fa-phone"></i> 88005117008</a></li>
+              <li> <a href="ooomtk28@gmail.com"> ooomtk28@gmail.com</a> </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Скрипт для управления бургер-меню -->
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            const burgerMenu = document.querySelector('.burger-menu');
+            navbar.classList.toggle('open');
+            burgerMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
