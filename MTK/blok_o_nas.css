@@ -127,7 +127,9 @@
 .text_o_nas ul li{
     font-size: 22px; /* Размер текста */
     line-height: 2.5; /* Межстрочный интервал для лучшей читаемости */
-    margin-left: 20px; /* Отступ слева */
+    margin-left: 10px; /* Отступ слева */
+
+
 
 }
 
@@ -137,7 +139,7 @@
 }
 
 .text_o_nas p strong, ul li strong{
-        color: rgb(232, 198, 25);
+        color: rgb(241, 193, 72);
 
 }
 

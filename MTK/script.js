@@ -81,6 +81,11 @@ function searchItems() {
     let allItems = document.querySelectorAll(".tech-item");
     let resultMessage = document.getElementById("searchResultMessage");
 
+     // Проверка, если строка поиска пустая
+    if (searchQuery === "") {
+        return;
+    }
+
     let foundItems = 0;
 
     allItems.forEach(item => {
