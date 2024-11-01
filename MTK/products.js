@@ -1,4 +1,4 @@
-const popular_products = {
+const products = {
     "mtk300": {
         "name": "Фронтальный погрузчик МТК 300",
         "price": "4 800 000 ₽",

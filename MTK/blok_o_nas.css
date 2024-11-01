@@ -17,7 +17,7 @@
     display: flex; /* Включаем Flexbox для расположения элементов бок о бок */
     width: 90%; /* Ширина контейнера */
     max-width: 1200px; /* Ограничение максимальной ширины */
-    max-height: 700px;
+    max-height: 750px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Тень для создания глубины */
     border-radius: 20px; /* Закругленные углы */
     overflow: hidden; /* Обрезка содержимого по границам */
@@ -53,18 +53,45 @@
 }
 
 .content-display {
+    overflow-y: auto;
     flex: 3;
-    padding: 30px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
     background-color: #333;
-    max-height: 0; /* Начальная высота блока для анимации */
-    overflow: hidden; /* Обрезка содержимого по границам */
+
+
     opacity: 0; /* Начальная прозрачность для анимации */
     transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Плавный переход для изменения высоты и прозрачности */
 }
+
+
+/* Стили для полосы прокрутки в WebKit браузерах */
+
+/* ------------------------------------------------------------------------------ */
+
+.content-display::-webkit-scrollbar {
+    width: 10px; /* Ширина полосы прокрутки */
+}
+
+.content-display::-webkit-scrollbar-track {
+    background: #444; /* Цвет фона трека полосы прокрутки */
+    border-radius: 5px; /* Закругление углов трека */
+}
+
+.content-display::-webkit-scrollbar-thumb {
+    background: #888; /* Цвет самого ползунка */
+    border-radius: 5px; /* Закругление углов ползунка */
+}
+
+.content-display::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Цвет ползунка при наведении */
+}
+
+
+/* ------------------------------------------------------------------------------ */
 
 .active_on_nas {
     max-height: 1000px; /* Увеличена высота для поддержки большего контента */
@@ -100,7 +127,9 @@
 .text_o_nas ul li{
     font-size: 22px; /* Размер текста */
     line-height: 2.5; /* Межстрочный интервал для лучшей читаемости */
-    margin-left: 20px; /* Отступ слева */
+    margin-left: 10px; /* Отступ слева */
+
+
 
 }
 
@@ -110,7 +139,7 @@
 }
 
 .text_o_nas p strong, ul li strong{
-        color: rgb(232, 198, 25);
+        color: rgb(241, 193, 72);
 
 }
 
@@ -152,8 +181,15 @@
 
     .content-display p {
         font-size: 16px;
-        text-align: center;
+
     }
+    .text_o_nas ul li{
+    font-size: 16px; /* Размер текста */
+    line-height: 2.5; /* Межстрочный интервал для лучшей читаемости */
+
+    margin-left: 20px; /* Отступ слева */
+    }
+
 }
 
 @media (max-width: 480px) {

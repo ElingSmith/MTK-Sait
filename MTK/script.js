@@ -19,12 +19,18 @@ const products = {
         "price": "5 500 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
         "image": "images/MTK_930 (6) — копия.jpeg"
+    },
+    "mtk320": {
+        "name": "Фронтальный погрузчик МТК 300",
+        "price": "4 800 000 ₽",
+        "description": "Надёжная и мощная спецтехника для выполнения задач на стройке и производстве.",
+        "image": "images/Вставленное изображение.png"
     }
 
     // остальные товары здесь...
 };
 
-// Отображение всех товаров на главной странице
+// Отображение главных товаров на главной странице
 function displayProducts() {
     const productsContainer = document.getElementById('popularTech');
 
@@ -37,10 +43,11 @@ function displayProducts() {
         productCard.setAttribute('data-product-id', productId);
 
       productCard.innerHTML = `
-
+            
             <h3>${product.name}</h3>
             <img src="${product.image}" alt="${product.name}">
             <p>Цена: ${product.price}</p>
+            
 
         `;
 
@@ -80,6 +87,11 @@ function searchItems() {
     let searchQuery = document.getElementById("searchInput").value.toLowerCase();
     let allItems = document.querySelectorAll(".tech-item");
     let resultMessage = document.getElementById("searchResultMessage");
+
+     // Проверка, если строка поиска пустая
+    if (searchQuery === "") {
+        return;
+    }
 
     let foundItems = 0;
 
