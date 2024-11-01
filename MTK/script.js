@@ -82,31 +82,64 @@ function displayProductDetails() {
     }
 }
 
+// Запуск поиска при вводе текста
+document.getElementById("searchInput").addEventListener("input", searchItems);
+
 // Функция поиска товаров
+document.getElementById("searchInput").addEventListener("input", searchItems);
+
 function searchItems() {
     let searchQuery = document.getElementById("searchInput").value.toLowerCase();
-    let allItems = document.querySelectorAll(".tech-item");
-    let resultMessage = document.getElementById("searchResultMessage");
+    let dropdownContainer = document.getElementById("searchDropdown");
 
-     // Проверка, если строка поиска пустая
+    // Очистка предыдущих результатов
+    dropdownContainer.innerHTML = "";
+    let foundItems = 0;
+
+    // Если поле поиска пустое, скрываем выпадающее меню
     if (searchQuery === "") {
+        dropdownContainer.style.display = "none";
         return;
     }
 
-    let foundItems = 0;
+    // Поиск товаров в массиве `products`
+    for (const productId in products) {
+        const product = products[productId];
+        const itemName = product.name.toLowerCase();
 
-    allItems.forEach(item => {
-        let itemName = item.querySelector("h3").innerText.toLowerCase();
         if (itemName.includes(searchQuery)) {
-            item.style.display = "block";
             foundItems++;
-        } else {
-            item.style.display = "none";
-        }
-    });
 
-    resultMessage.textContent = foundItems ? `Найдено товаров: ${foundItems}` : "Товар не найден.";
+            // Создаём элемент списка для найденного товара
+            let listItem = document.createElement("li");
+            listItem.classList.add("dropdown-item");
+            listItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="dropdown-img">
+                <span class="dropdown-name">${product.name}</span> - <span class="dropdown-price">${product.price}</span>
+            `;
+
+            // Переход на страницу товара по клику
+            listItem.addEventListener("click", function() {
+                window.location.href = `product.html?product=${productId}`;
+            });
+
+            // Добавление элемента в контейнер
+            dropdownContainer.appendChild(listItem);
+        }
+    }
+
+    // Если совпадений нет, показываем сообщение
+    if (foundItems === 0) {
+        let noResultItem = document.createElement("li");
+        noResultItem.classList.add("dropdown-item", "no-results");
+        noResultItem.textContent = "Совпадений не найдено";
+        dropdownContainer.appendChild(noResultItem);
+    }
+
+    // Показ выпадающего списка с анимацией
+    dropdownContainer.style.display = "block";
 }
+
 
 // Проверка, на какой странице запущен скрипт
 document.addEventListener('DOMContentLoaded', () => {
