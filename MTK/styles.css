@@ -123,12 +123,12 @@ body {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') center/cover no-repeat;
     height: 80vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     color: #fff;
-    padding: 0 20px;
-    margin-top: 70px; /* Чтобы учесть фиксированную шапку */
+    padding: 40px 20px;
+    position: relative; /* Добавляет контекст для абсолютного позиционирования */
 }
 
 .hero h1 {
@@ -150,7 +150,7 @@ body {
     padding: 15px 20px;
     width: 300px; /* Установлена фиксированная ширина */
     border: none;
-    border-radius: 50px 0 0 50px;
+    border-radius: 50px;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     font-size: 16px;
@@ -165,18 +165,16 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.search-box button {
-    padding: 15px 30px;
-    background-color: #f1c40f;
-    border: none;
-    border-radius: 0 50px 50px 0; /* Закругление только правой части */
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+.search-box {
+    position: relative;
+    width: 100%; /* чтобы выпадающий список соответствовал ширине */
+    max-width: 400px; /* Ограничение ширины */
+    margin-top: 20px;
+    display: flex; /* Используем Flexbox для центрирования */
+    justify-content: center; /* Центрирование по горизонтали */
+    margin: 20px auto; /* Центрирование с помощью автоматических отступов по горизонтали */
 
-.search-box button:hover {
-    background-color: #e2b109;
+
 }
 
 /* Категории */
@@ -689,4 +687,115 @@ ul {
     }
 }
 
+/* стили выпадающего списка на поиске */
 
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -25%;
+
+
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px 0;
+    width: 150%;
+
+    max-height: 500px;
+    overflow-y: auto;
+    list-style: none;
+    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #444;
+}
+
+/* Увеличенное изображение */
+.dropdown-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Уменьшенные стили для текста и цены */
+.dropdown-name {
+    font-weight: bold;
+    flex: 1;
+    font-size: 14px; /* Уменьшен размер текста */
+    margin-bottom: 4px;
+    color: #f0f0f0;
+}
+
+.dropdown-price {
+    font-size: 12px; /* Уменьшен размер шрифта для цены */
+    color: #aaa;
+    margin-left: 5px;
+}
+
+/* Стили для "совпадений не найдено" */
+.no-results {
+    text-align: center;
+    color: #ccc;
+    font-style: italic;
+}
+
+/* Анимация выпадения */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивные стили для экранов шириной меньше 768px */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        width: 100%; /* Установите ширину на 100% на мобильных устройствах */
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu {
+        max-height: 200px;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .dropdown-item {
+        padding: 12px;
+    }
+
+    .dropdown-img {
+        width: 50px; /* Немного меньше для мобильных */
+        height: 50px;
+        margin-right: 8px;
+    }
+
+    .dropdown-name {
+        font-size: 12px; /* Еще меньше текст на мобильных */
+    }
+
+    .dropdown-price {
+        font-size: 10px; /* Цена еще меньше */
+    }
+}
