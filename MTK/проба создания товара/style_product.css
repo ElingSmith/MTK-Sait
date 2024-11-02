@@ -1,0 +1,27 @@
+
+        .product-page {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+        }
+        .images img {
+            width: 100%;
+            margin: 5px 0;
+        }
+        .price {
+            font-size: 1.5em;
+            color: green;
+            font-weight: bold;
+        }
+        .specifications {
+            margin-top: 20px;
+        }
+        .specification-group {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #555;
+        }

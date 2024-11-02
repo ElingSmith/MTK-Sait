@@ -27,9 +27,6 @@ body {
     z-index: 1000;
 }
 
-#categories {
-    margin-top: 80px;
-}
 
 .logo img {
     width: 120px;
@@ -127,7 +124,7 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
-    padding: 40px 20px;
+    padding: 160px 20px;
     position: relative; /* Добавляет контекст для абсолютного позиционирования */
 }
 
@@ -175,32 +172,6 @@ body {
     margin: 20px auto; /* Центрирование с помощью автоматических отступов по горизонтали */
 
 
-}
-
-/* Категории */
-.categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 30px 0;
-    background-color: #222;
-}
-
-.category {
-    color: #fff;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid #f1c40f;
-    border-radius: 25px;
-}
-
-.category.active,
-.category:hover {
-    background-color: #f1c40f;
-    color: #222;
 }
 
 /* Разделы популярных товаров */
@@ -569,11 +540,7 @@ ul {
         border-radius: 5px; /* Полностью закругляем */
         margin-bottom: 10px; /* Отступ снизу */
     }
-    .search-box button {
-        width: 100%;
-        border-radius: 5px; /* Полностью закругляем */
-        margin-left: 0; /* Отменяем отступ слева */
-    }
+
     .category {
         padding: 8px 16px;
         font-size: 14px;
@@ -658,11 +625,10 @@ ul {
     .search-box input {
         padding: 10px 15px;
         font-size: 14px;
+        width: 60%;
+        border-radius: 20px;
     }
-    .search-box button {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
+
     .popular-tech h2, .attachments h2 {
         font-size: 20px;
     }
@@ -680,10 +646,22 @@ ul {
         width: 50%;
         margin-bottom: 30px;
     }
+    .search-box input {
+        padding: 10px 15px;
+        font-size: 14px;
+        width: 60%;
+        border-radius: 20px;
+    }
 }
 @media(max-width: 574px){
     .footer-col{
         width: 100%;
+    }
+    .search-box input {
+        padding: 10px 15px;
+        font-size: 14px;
+        width: 60%;
+        border-radius: 20px;
     }
 }
 
@@ -694,13 +672,10 @@ ul {
     position: absolute;
     top: 100%;
     left: -25%;
-
-
     background-color: #333;
     border-radius: 8px;
     padding: 10px 0;
     width: 150%;
-
     max-height: 500px;
     overflow-y: auto;
     list-style: none;
@@ -708,50 +683,55 @@ ul {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: slideDown 0.3s ease;
     z-index: 1000;
+    padding: 10px;
+
 }
 
+
 .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px;
-    cursor: pointer;
-    color: #f0f0f0;
-    transition: background-color 0.2s;
+    display: flex; /* Использует Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    padding: 5px 12px; /* Отступы вокруг элемента */
+    cursor: pointer; /* Курсор указателя при наведении */
+    color: #f0f0f0; /* Цвет текста */
+    transition: background-color 0.2s; /* Плавный переход фона при наведении */
 }
 
 .dropdown-item:hover {
     background-color: #444;
+    border-radius: 10px;
+
 }
 
 /* Увеличенное изображение */
 .dropdown-img {
-    width: 60px;
-    height: 60px;
+    width: 110px; /* Увеличен размер изображения */
+    height: 80px; /* Увеличен размер изображения */
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 8px; /* Уменьшен отступ справа */
     border-radius: 4px;
 }
 
 /* Уменьшенные стили для текста и цены */
 .dropdown-name {
     font-weight: bold;
-    flex: 1;
-    font-size: 14px; /* Уменьшен размер текста */
-    margin-bottom: 4px;
+    flex: 1; /* Позволяет названию занимать доступное пространство */
+    font-size: 16px; /* Размер текста для заголовка */
     color: #f0f0f0;
+    margin: 0; /* Удалены все отступы */
 }
 
 .dropdown-price {
-    font-size: 12px; /* Уменьшен размер шрифта для цены */
+    font-size: 14px; /* Размер шрифта для цены */
     color: #aaa;
-    margin-left: 5px;
+    margin-left: 8px; /* Уменьшен отступ слева */
+    white-space: nowrap; /* Предотвращает перенос строки */
 }
 
 /* Стили для "совпадений не найдено" */
 .no-results {
     text-align: center;
     color: #ccc;
-    font-style: italic;
 }
 
 /* Анимация выпадения */
@@ -772,23 +752,15 @@ ul {
         width: 100%; /* Установите ширину на 100% на мобильных устройствах */
         left: 0;
     }
-}
-
-@media (max-width: 768px) {
-    .dropdown-menu {
-        max-height: 200px;
-        width: 100%;
-        padding: 8px 0;
-    }
 
     .dropdown-item {
-        padding: 12px;
+        padding: 8px; /* Увеличьте отступы на мобильных устройствах */
     }
 
     .dropdown-img {
-        width: 50px; /* Немного меньше для мобильных */
-        height: 50px;
-        margin-right: 8px;
+        width: 80px; /* Немного меньше для мобильных */
+        height: 60px; /* Немного меньше для мобильных */
+        margin-right: 8px; /* Уменьшен отступ справа */
     }
 
     .dropdown-name {
@@ -799,3 +771,166 @@ ul {
         font-size: 10px; /* Цена еще меньше */
     }
 }
+
+
+/*чтобы полоса прокрутки была только на пк, на телефоне она и так врое норм */
+@media (min-width: 1080px) {
+    .dropdown-menu::-webkit-scrollbar {
+        width: 10px; /* Ширина полосы прокрутки */
+    }
+
+    .dropdown-menu::-webkit-scrollbar-track {
+        background: #444; /* Цвет фона трека полосы прокрутки */
+        border-radius: 5px; /* Закругление углов трека */
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb {
+        background: #676767; /* Цвет самого ползунка */
+        border-radius: 5px; /* Закругление углов ползунка */
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Цвет ползунка при наведении */
+    }
+}
+
+
+ /* ---------------------------------------- */
+
+
+/* Основной контейнер для категорий */
+
+
+
+.categories {
+    display: flex; /* Flex-контейнер для выравнивания элементов по горизонтали */
+    justify-content: center; /* Центрирует содержимое по горизонтали */
+    padding: 30px 0; /* Отступы сверху и снизу */
+    background-color: #222; /* Темный цвет фона для выделения блока */
+}
+
+/* Отступ сверху для секции категорий */
+#categories {
+    margin-top: 80px; /* Отделяет секцию от верхних элементов */
+}
+
+/* Стили для каждой категории */
+.category {
+    color: #fff; /* Цвет текста для категорий - белый */
+    padding: 10px 20px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    margin: 5px; /* Отступы между кнопками категорий */
+    cursor: pointer; /* Указатель мыши меняется на "указатель" при наведении */
+    font-weight: 500; /* Полужирный текст */
+    transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход для фона и текста */
+    border: 1px solid #f1c40f; /* Желтая рамка вокруг категории */
+    border-radius: 25px; /* Закругленные углы рамки */
+    position: relative; /* Относительное позиционирование для вложенных элементов (меню) */
+}
+
+/* Стили для активных или наведенных категорий */
+.category.active,
+.category:hover {
+    background-color: #f1c40f; /* Цвет фона при наведении - желтый */
+    color: #222; /* Цвет текста при наведении - темно-серый */
+
+}
+
+/* Стили для выпадающего меню */
+.submenu {
+    white-space: nowrap; /* Запрещаем перенос текста */
+    width: auto; /* Автоматическая ширина в зависимости от содержимого */
+    max-width: 1000px; /* Максимальная ширина меню */
+    min-width: 300px; /* Минимальная ширина меню для лучшего отображения */
+    position: absolute; /* Абсолютное позиционирование для выпадающего меню */
+    top: calc(100% + 10px); /* Располагаем меню под кнопкой категории */
+    left: -25%; /* Выравниваем меню по левому краю кнопки категории */
+    background-color: rgba(39, 39, 39, 0.95); /* Цвет фона для выпадающего меню с небольшой прозрачностью */
+    padding: 15px 30px; /* Отступы внутри меню */
+    border-radius: 15px; /* Закругленные углы для меню */
+    gap: 90px; /* Промежуток между колонками в меню */
+    z-index: 10; /* Уровень слоя, чтобы меню отображалось поверх других элементов */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавный переход для прозрачности и видимости */
+    visibility: hidden; /* Изначально скрываем меню */
+}
+
+/* Псевдоэлемент для увеличения области наведения */
+.category:hover .submenu::before {
+    content: ""; /* Необходим для создания пустого элемента */
+    position: absolute;
+    top: -10px; /* Поднимаем псевдоэлемент на 10px вверх */
+    left: 0; /* Выровнено по левому краю */
+    right: 0; /* Выровнено по правому краю */
+    bottom: 100%; /* Устанавливаем его под кнопкой */
+    height: 10px; /* Высота псевдоэлемента */
+}
+
+/* Правило для отображения меню при наведении на категорию */
+.category:hover .submenu {
+    display: flex; /* Показываем выпадающее меню при наведении на категорию */
+    opacity: 1; /* Меню становится видимым */
+    visibility: visible; /* Делаем меню видимым */
+}
+
+/* Скрытие меню при уходе мыши */
+.category .submenu {
+    display: none; /* Скрываем меню по умолчанию */
+}
+
+/* Стили для колонок внутри выпадающего меню */
+.column {
+    display: flex; /* Flex-контейнер для вертикального расположения подкатегорий */
+    flex-direction: column; /* Элементы выстраиваются в колонку */
+}
+
+/* Стили для подкатегорий */
+.subcategory,
+.subsubcategory {
+    color: #fff; /* Цвет текста подкатегорий - белый */
+    padding: 10px 0; /* Отступы сверху и снизу для подкатегорий */
+    font-weight: bold; /* Жирный текст для подкатегорий */
+    transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход цвета фона и подчеркивания */
+    position: relative; /* Относительное позиционирование для подкатегорий */
+    display: inline-block; /* Используйте inline-block, чтобы элемент занимал ширину контента */
+}
+
+
+.subcategory {
+    color: #fff; /* Цвет текста подкатегорий - белый */
+
+    font-weight: bold; /* Жирный текст для подкатегорий */
+    font-size: 1.4em; /* Увеличенный размер шрифта для подкатегорий */
+    margin-bottom: 10px; /* Отступ снизу для подкатегорий */
+    transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход цвета фона и подчеркивания */
+    position: relative; /* Относительное позиционирование для подкатегорий */
+}
+
+
+
+
+
+
+/* Стили для активных или наведенных категорий */
+.category.active,
+.category:hover {
+    background-color: #f1c40f; /* Цвет фона при наведении - желтый */
+    color: #222; /* Цвет текста при наведении - темно-серый */
+
+}
+
+
+/* Эффект тени для текста при наведении */
+.subcategory:hover,
+.subsubcategory:hover {
+    text-shadow: 0 0 15px rgba(150, 150, 150, 1), /* Основная тень (еще темнее) */
+                 0 0 30px rgba(150, 150, 150, 0.5); /* Вторая тень для подсветки (еще темнее) */
+}
+
+/* Эффект тени для полоски при наведении */
+.subcategory:hover::after,
+.subsubcategory:hover::after {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1), /* Тень полоски */
+                0 0 20px rgba(255, 255, 255, 0.5); /* Более размытую тень */
+}
+
+
