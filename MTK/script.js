@@ -25,7 +25,32 @@ const products = {
         "price": "4 800 000 ₽",
         "description": "Надёжная и мощная спецтехника для выполнения задач на стройке и производстве.",
         "image": "images/Вставленное изображение.png"
-    }
+    },
+        "mtk9302": {
+        "name": "Фронтальный погрузчик МТК 930",
+        "price": "5 500 000 ₽",
+        "description": "Отличное сочетание мощности и экономичности.",
+        "image": "images/MTK_930 (6) — копия.jpeg"
+    },
+        "mtk9303": {
+        "name": "Фронтальный погрузчик МТК 930",
+        "price": "5 500 000 ₽",
+        "description": "Отличное сочетание мощности и экономичности.",
+        "image": "images/MTK_930 (6) — копия.jpeg"
+    },
+        "mtk9430": {
+        "name": "Фронтальный погрузчик МТК 930",
+        "price": "5 500 000 ₽",
+        "description": "Отличное сочетание мощности и экономичности.",
+        "image": "images/MTK_930 (6) — копия.jpeg"
+    },
+        "mtk9530": {
+        "name": "Фронтальный погрузчик МТК 930",
+        "price": "5 50009909 000 ₽",
+        "description": "Отличное сочетание мощности и экономичности.",
+        "image": "images/MTK_930 (6) — копия.jpeg"
+    },
+
 
     // остальные товары здесь...
 };
@@ -43,10 +68,12 @@ function displayProducts() {
         productCard.setAttribute('data-product-id', productId);
 
       productCard.innerHTML = `
+
             
             <h3>${product.name}</h3>
             <img src="${product.image}" alt="${product.name}">
             <p>Цена: ${product.price}</p>
+            
             
 
         `;
@@ -115,7 +142,7 @@ function searchItems() {
             listItem.classList.add("dropdown-item");
             listItem.innerHTML = `
                 <img src="${product.image}" alt="${product.name}" class="dropdown-img">
-                <span class="dropdown-name">${product.name}</span> - <span class="dropdown-price">${product.price}</span>
+                <span class="dropdown-name">${product.name}</span><span class="dropdown-price">${product.price}</span>
             `;
 
             // Переход на страницу товара по клику
@@ -149,3 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayProducts();
     }
 });
+
+
+
+
