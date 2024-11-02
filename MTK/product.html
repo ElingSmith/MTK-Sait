@@ -4,27 +4,522 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Детали товара | MTK</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(34, 34, 34, 0.9)), 
+                        url('background-pattern.png') center/cover no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInBody 1s ease forwards;
+        }
+
+        @keyframes fadeInBody {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Добавляем цветные слои для глубины */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 30% 20%, rgba(241, 196, 15, 0.2), transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(52, 152, 219, 0.2), transparent 50%);
+            animation: rotateGradient 20s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Шапка сайта */
+        .header {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(34, 34, 34, 0.8);
+            padding: 15px 30px;
+            color: #fff;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            animation: slideDownHeader 0.8s ease forwards;
+        }
+
+        @keyframes slideDownHeader {
+            to {
+                top: 0;
+            }
+        }
+
+        .header .logo img {
+            width: 100px;
+            transition: transform 0.5s ease;
+        }
+
+        .header .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background-color: #f1c40f;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a:hover {
+            color: #f1c40f;
+        }
+
+        /* Glassmorphism для деталей продукта */
+        .product-details {
+            max-width: 800px;
+            margin: 150px auto 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-details h1 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.8s ease forwards 1s;
+        }
+
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-details img.product-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 0.8s ease forwards 1.2s;
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .product-details #product-price {
+            font-size: 24px;
+            color: #f1c40f;
+            font-weight: bold;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 0.8s ease forwards 1.4s;
+        }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .product-details #product-description {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 0.8s ease forwards 1.6s;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .add-to-cart-button {
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            background-color: #f1c40f;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 1.8s;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #e2b109;
+            transform: scale(1.05);
+        }
+
+        /* Партиклы на заднем фоне */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+        }
+
+        /* Анимация свечения при наведении на изображение */
+        .product-details img.product-image:hover {
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.7);
+            transform: scale(1.05);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* Анимация кнопки при наведении */
+        .add-to-cart-button::before {
+            content: '';
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 50%);
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .add-to-cart-button:hover::before {
+            opacity: 1;
+        }
+
+        /* Анимация нажатия кнопки */
+        .add-to-cart-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Анимация навигационных ссылок */
+        .navbar a {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInNavLink 0.8s ease forwards;
+        }
+
+        .navbar a:nth-child(1) {
+            animation-delay: 0.9s;
+        }
+
+        .navbar a:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeInNavLink {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Добавляем плавающие линии */
+        .floating-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(241, 196, 15, 0.5), transparent);
+            left: 50%;
+            animation: moveLine 5s linear infinite;
+        }
+
+        .line:nth-child(1) {
+            left: 20%;
+            animation-duration: 7s;
+        }
+
+        .line:nth-child(2) {
+            left: 40%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .line:nth-child(3) {
+            left: 60%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .line:nth-child(4) {
+            left: 80%;
+            animation-duration: 5s;
+            animation-delay: 3s;
+        }
+
+        @keyframes moveLine {
+            from {
+                top: -100%;
+            }
+            to {
+                top: 100%;
+            }
+        }
+
+        /* Добавляем анимированные фоновые фигуры */
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -3;
+        }
+
+        .shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(241, 196, 15, 0.1);
+            border-radius: 50%;
+            animation: moveShape 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-duration: 25s;
+        }
+
+        .shape:nth-child(2) {
+            top: 50%;
+            left: 70%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            top: 80%;
+            left: 30%;
+            animation-duration: 35s;
+            animation-delay: 2s;
+        }
+
+        @keyframes moveShape {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                transform: scale(1.5) translateY(-50px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .product-details {
+                margin: 100px 10px 20px;
+                padding: 20px;
+            }
+
+            .product-details h1 {
+                font-size: 28px;
+            }
+
+            .product-details #product-price {
+                font-size: 20px;
+            }
+
+            .product-details #product-description {
+                font-size: 16px;
+            }
+
+            .add-to-cart-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .shape {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="particles"></div>
+    <div class="floating-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
     <header class="header">
         <div class="logo">
             <img src="logo.png" alt="Логотип MTK">
         </div>
         <nav class="navbar">
             <a href="index.html">Главная</a>
-            <a href="cart.html">О нас</a>
+            <a href="o_nas.html">О нас</a>
         </nav>
     </header>
 
     <section class="product-details">
-        <h1 id="product-name"></h1>
-        <img id="product-image" alt="Изображение товара" class="product-image">
-        <p id="product-price"></p>
-        <p id="product-description"></p>
+        <h1 id="product-name">Название товара</h1>
+        <img id="product-image" alt="Изображение товара" class="product-image" src="placeholder.jpg">
+        <p id="product-price">Цена: --</p>
+        <p id="product-description">Описание товара будет здесь.</p>
         <button onclick="addToCart()" class="add-to-cart-button">Добавить в корзину</button>
     </section>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            displayProductDetails();
+
+            const productParam = getProductParam();
+            if (!products[productParam]) {
+                document.getElementById('debug-info').textContent = 'Товар не найден, проверьте URL.';
+                document.getElementById('debug-info').style.display = 'block';
+            }
+
+            // Генерируем партиклы
+            createParticles();
+        });
+
+        function addToCart() {
+            alert("Товар добавлен в корзину!");
+        }
+
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = window.innerWidth > 768 ? 70 : 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.width = particle.style.height = Math.random() * 5 + 2 + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = Math.random() * 10 + 5 + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+    </script>
 </body>
 </html>
