@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+
         addSpecificationGroup(model.technical_specifications, specsContainer);
         pageContainer.appendChild(specsContainer);
 

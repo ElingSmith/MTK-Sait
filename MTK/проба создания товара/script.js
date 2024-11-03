@@ -13,6 +13,7 @@ function setupSlider(sliderId, minValueId, maxValueId, minRange, maxRange) {
     });
 }
 
+
 // Настройка ползунков
 setupSlider('price-slider', 'price-min-value', 'price-max-value', 0, 100000);
 setupSlider('load-slider', 'load-min-value', 'load-max-value', 0, 50000);
