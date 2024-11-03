@@ -21,7 +21,7 @@
             <a href="cart.html">Корзина</a>
         </nav>
         <div class="header-contact">
-            <p>Телефон: +8 800 000 33 45</p>
+            <p>Телефон: +8 (800) 000 33 45</p>
         </div>
         <!-- бургер-меню -->
         <div class="burger-menu" onclick="toggleMenu()">
@@ -31,26 +31,27 @@
         </div>
     </header>
 
+
+
 <section id="categories" class="categories">
-    <div class="category">
-        Спецтехника
-        <div class="submenu">
-            <div class="column">
-                <div class="subcategory">Погрузчики</div>
-                <div class="subsubcategory">Фронтальные</div>
-                <div class="subsubcategory">Телескопические</div>
-                <div class="subsubcategory">Мини погрузчики</div>
-                <div class="subsubcategory">Вилочные</div>
-            </div>
-            <div class="column">
-                <div class="subcategory">Дорожно-строительная техника</div>
-                <div class="subsubcategory">Экскаватор погрузчик</div>
-                <div class="subsubcategory">Катки</div>
-                <div class="subsubcategory">Бульдозеры</div>
-                <div class="subsubcategory">Грейдеры</div>
+        <div class="category">
+            Спецтехника
+            <div class="submenu">
+                <div class="column">
+                    <div class="subcategory"><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Погрузчики</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=frontalnye">Фронтальные</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Телескопические</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=mini">Мини погрузчики</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=vilochnye" style="text-decoration: none;">Вилочные</a></div>
+                </div>
+                <div class="column">
+                    <div class="subcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=ekskavator-pogruzchik">Дорожно-строительная техника</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=katki">Катки</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=bulldoziery">Бульдозеры</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=greydery">Грейдеры</a></div>
+                </div>
             </div>
         </div>
-    </div>
 
      <div class="category">
         Навесное оборудование
@@ -112,6 +113,9 @@
 
 
 
+        <div id="product-list" class="product-list"></div>
+
+
 
 
     <!-- мб на телефонах сделать чтобы можно было пролистывать полпулярную технику (ат много места занимает, либо вообще для телефонов убрать -->
@@ -161,6 +165,7 @@
 
     <!-- Скрипт для управления бургер-меню -->
     <script src="script.js"></script>
+    <script src="product.js"></script>
     <script>
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');

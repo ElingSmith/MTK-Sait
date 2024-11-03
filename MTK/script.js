@@ -168,3 +168,175 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener("input", searchItems);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const subcategories = document.querySelectorAll(".subcategory, .subsubcategory");
+
+    subcategories.forEach(subcategory => {
+        subcategory.addEventListener("click", function() {
+            const category = this.getAttribute("data-category");
+            loadProducts(category);
+        });
+    });
+});
+
+function loadProducts(category) {
+    const productList = document.getElementById("product-list");
+    productList.innerHTML = ""; // Очищаем список товаров
+
+    const folderPath = `products/${category}`; // Укажите путь к папке с JSON-файлами
+    fetch(folderPath)
+        .then(response => response.json())
+        .then(files => {
+            const promises = files.map(file => fetch(`${folderPath}/${file}`));
+            return Promise.all(promises);
+        })
+        .then(responses => {
+            return Promise.all(responses.map(res => res.json()));
+        })
+        .then(products => {
+            products.forEach(product => {
+                const productItem = document.createElement("div");
+                productItem.classList.add("product-item");
+                productItem.innerHTML = `
+
+                    
+                <img src="${product.image}" alt="${product.name}" class="dropdown-img">
+                <span class="dropdown-name">${product.product_name}</span>
+                <span class="dropdown-price">${product.price}</span>
+                `;
+                productList.appendChild(productItem);
+            });
+        })
+        .catch(error => {
+            console.error("Ошибка загрузки товаров:", error);
+        });
+}

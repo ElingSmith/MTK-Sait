@@ -1,5 +1,6 @@
 {
     "product_name": "Телескопический погрузчик Redstar TL2000",
+    "price": 100000000,
     "characteristics": {
         "Основные характеристики": {
             "Номинальная грузоподъемность": "1800 кг",
@@ -51,5 +52,10 @@
             "Давление в передних шинах, КПа": "250",
             "Давление в задних шинах, КПа": "250"
         }
-    }
+    },
+    "images": [
+        "https://example.com/image1.jpg",
+        "https://example.com/image2.jpg",
+        "https://example.com/image3.jpg"
+    ]
 }

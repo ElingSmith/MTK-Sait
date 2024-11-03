@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтр спецтехники</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="filter">
+        <h2>Фильтр спецтехники</h2>
+
+        <div class="filter-item">
+            <label>Розничная цена (С надбавками)</label>
+            <div class="slider-container">
+                <input type="range" id="price-min-slider" min="0" max="100000" value="0" class="slider">
+                <input type="range" id="price-max-slider" min="0" max="100000" value="100000" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="price-min-value" value="0" class="range-input">
+                <input type="text" id="price-max-value" value="100000" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Грузоподъемность, кг</label>
+            <div class="slider-container">
+                <input type="range" id="load-min-slider" min="0" max="50000" value="0" class="slider">
+                <input type="range" id="load-max-slider" min="0" max="50000" value="50000" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="load-min-value" value="0" class="range-input">
+                <input type="text" id="load-max-value" value="50000" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Объём ковша, м³</label>
+            <div class="slider-container">
+                <input type="range" id="bucket-min-slider" min="0" max="10" value="0" class="slider">
+                <input type="range" id="bucket-max-slider" min="0" max="10" value="10" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="bucket-min-value" value="0" class="range-input">
+                <input type="text" id="bucket-max-value" value="10" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Мощность двигателя, л.с.</label>
+            <div class="slider-container">
+                <input type="range" id="power-min-slider" min="0" max="500" value="0" class="slider">
+                <input type="range" id="power-max-slider" min="0" max="500" value="500" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="power-min-value" value="0" class="range-input">
+                <input type="text" id="power-max-value" value="500" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Масса (вес), кг</label>
+            <div class="slider-container">
+                <input type="range" id="weight-min-slider" min="0" max="30000" value="0" class="slider">
+                <input type="range" id="weight-max-slider" min="0" max="30000" value="30000" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="weight-min-value" value="0" class="range-input">
+                <input type="text" id="weight-max-value" value="30000" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Максимальная высота подъема, м</label>
+            <div class="slider-container">
+                <input type="range" id="lift-min-slider" min="0" max="20" value="0" class="slider">
+                <input type="range" id="lift-max-slider" min="0" max="20" value="20" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="lift-min-value" value="0" class="range-input">
+                <input type="text" id="lift-max-value" value="20" class="range-input">
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <label>Максимальная высота разгрузки, м</label>
+            <div class="slider-container">
+                <input type="range" id="discharge-min-slider" min="0" max="20" value="0" class="slider">
+                <input type="range" id="discharge-max-slider" min="0" max="20" value="20" class="slider">
+            </div>
+            <div class="range-labels">
+                <input type="text" id="discharge-min-value" value="0" class="range-input">
+                <input type="text" id="discharge-max-value" value="20" class="range-input">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

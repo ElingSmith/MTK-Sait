@@ -10,7 +10,6 @@ body {
     background-color: #111;
     color: #fff;
     line-height: 1.6;
-    overflow-x: hidden; /* Предотвращает горизонтальный скроллинг */
 }
 
 /* Шапка сайта */
@@ -23,22 +22,11 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: rgba(34, 34, 34, 0.9);
-    padding: 15px 30px;
+    padding: 15px 15px;
     backdrop-filter: blur(5px);
     z-index: 1000;
-    animation: slideDownHeader 0.6s ease forwards;
 }
 
-@keyframes slideDownHeader {
-    from {
-        top: -100px;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
 
 .logo img {
     width: 120px;
@@ -46,10 +34,10 @@ body {
 }
 
 .logo img:hover {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1);
 }
 
-.navbar {
+.category {
     display: flex;
     align-items: center;
 }
@@ -76,23 +64,6 @@ body {
 
 .navbar a:hover::after {
     width: 100%;
-}
-
-.navbar a:hover {
-    color: #f1c40f;
-    animation: shake 0.5s;
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    20%, 60% {
-        transform: translateX(-5px);
-    }
-    40%, 80% {
-        transform: translateX(5px);
-    }
 }
 
 /* Иконка бургер-меню */
@@ -128,56 +99,20 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 70px; /* Высота шапки */
+    top: 50px; /* Высота шапки */
     right: 0;
-    background-color: rgba(34, 34, 34, 0.95);
+    background-color: rgba(34, 34, 34, 0.9);
     width: 100%;
     text-align: center;
     padding: 20px 0;
     z-index: 999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    animation: fadeInMenu 0.5s ease forwards;
-}
-
-@keyframes fadeInMenu {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .navbar.open a {
     padding: 15px 0;
     margin: 0;
     border-bottom: 1px solid #333;
-    animation: slideInLink 0.3s ease forwards;
-}
-
-.navbar.open a:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.navbar.open a:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.navbar.open a:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-@keyframes slideInLink {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 /* Блок героя */
@@ -185,24 +120,12 @@ body {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') center/cover no-repeat;
     height: 80vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     color: #fff;
     padding: 160px 20px;
-    position: relative;
-    animation: fadeInHero 1s ease forwards;
-}
-
-@keyframes fadeInHero {
-    from {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    position: relative; /* Добавляет контекст для абсолютного позиционирования */
 }
 
 .hero h1 {
@@ -210,43 +133,19 @@ body {
     font-weight: 700;
     margin-bottom: 20px;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    animation: slideUpText 1s ease forwards;
 }
 
-@keyframes slideUpText {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero .search-box {
+.hero .search-box { /* Исправлен селектор */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
+    width: auto; /* Изменено с 100% на auto */
     margin-top: 30px;
-    animation: fadeInSearch 1.2s ease forwards;
-}
-
-@keyframes fadeInSearch {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .search-box input {
     padding: 15px 20px;
-    width: 300px;
+    width: 300px; /* Установлена фиксированная ширина */
     border: none;
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -262,55 +161,39 @@ body {
 .search-box input:focus {
     outline: none;
     background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
 }
 
 .search-box {
     position: relative;
-    width: 100%;
-    max-width: 400px;
+    width: 100%; /* чтобы выпадающий список соответствовал ширине */
+    max-width: 400px; /* Ограничение ширины */
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
+    display: flex; /* Используем Flexbox для центрирования */
+    justify-content: center; /* Центрирование по горизонтали */
+    margin: 20px auto; /* Центрирование с помощью автоматических отступов по горизонтали */
+
+
 }
 
 /* Разделы популярных товаров */
 .popular-tech, .attachments {
     text-align: center;
+
     background-color: #111;
-    overflow: hidden;
 }
 
-.popular-tech h2, .attachments h2 {
+.popular-tech , .attachments h2 {
     font-size: 36px;
     margin-bottom: 50px;
     font-weight: 700;
     color: #e3c238;
-    position: relative;
-    display: inline-block;
-}
-
-.popular-tech h2::after, .attachments h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-    width: 0%;
-    height: 3px;
-    background-color: #f1c40f;
-    transition: width 0.5s ease;
-}
-
-.popular-tech h2:hover::after, .attachments h2:hover::after {
-    width: 100%;
 }
 
 /* Контейнер для карточек продуктов */
 .product-container {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряд */
     gap: 20px;
     max-width: 1200px;
     margin: 20px auto;
@@ -325,129 +208,65 @@ body {
     color: #fff;
     text-decoration: none;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
-    overflow: visible; /* Позволяет изображению выходить за границы */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform-style: preserve-3d;
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-    opacity: 0;
-    transform: translateY(100px) scale(1.2) skewY(10deg);
-    animation: brutalFadeInCard 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+    /* Убираем фиксированную ширину для Grid */
 }
 
-@keyframes brutalFadeInCard {
-    from {
-        opacity: 0;
-        transform: translateY(100px) scale(1.2) skewY(10deg);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1) skewY(0deg);
-    }
-}
-
-/* Анимация появления карточек с задержкой */
-.tech-item:nth-child(1), .attachment-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.tech-item:nth-child(2), .attachment-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.tech-item:nth-child(3), .attachment-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.tech-item:nth-child(4), .attachment-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-/* Анимация при наведении на карточку */
-.tech-item:hover, .attachment-item:hover {
-    transform: translateY(-20px) rotateX(25deg) scale(1.1);
-    box-shadow: 0 15px 35px rgba(241, 196, 15, 0.5);
-}
-
-/* Вращающийся градиентный фон при наведении */
-.tech-item::before, .attachment-item::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(241, 196, 15, 0.3), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    transform: rotate(0deg);
-}
-
-.tech-item:hover::before, .attachment-item:hover::before {
-    opacity: 1;
-    animation: rotateGradient 2s linear infinite;
-}
-
-@keyframes rotateGradient {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(720deg);
-    }
-}
-
-/* Стили для изображения продукта */
 .tech-item img, .attachment-item img {
     width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-    position: relative;
-    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .tech-item:hover img, .attachment-item:hover img {
-    transform: translateY(-20px) scale(1.1);
-    overflow: visible;
+    transform: scale(1.05);
 }
 
-/* Стили для заголовка продукта */
+.tech-item::before, .attachment-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(241, 196, 15, 0.1); /* Цвет полупрозрачной подсветки */
+    transition: opacity 0.5s ease; /* Плавная анимация */
+    opacity: 0; /* Начальная прозрачность */
+}
+
+.tech-item:hover::before, .attachment-item:hover::before {
+    opacity: 1; /* Полная видимость при наведении */
+}
+
+.tech-item:hover, .attachment-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(241, 196, 15, 0.3);
+}
+
 .tech-item h3, .attachment-item h3 {
     text-align: center;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
     color: #f1c40f;
-    transition: color 0.2s ease, transform 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-    transform: translateZ(20px);
+    transition: color 0.3s ease;
 }
 
-.tech-item:hover h3, .attachment-item:hover h3 {
-    color: #fff;
-    transform: translateZ(30px) scale(1.1);
-}
-
-/* Стили для описания продукта */
 .tech-item p, .attachment-item p {
     font-size: 16px;
     color: #ccc;
     margin-bottom: 20px;
     text-align: center;
     flex-grow: 1;
-    transition: color 0.2s ease, transform 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-    transform: translateZ(10px);
 }
 
-.tech-item:hover p, .attachment-item:hover p {
-    color: #eee;
-    transform: translateZ(20px) scale(1.05);
-}
-
-/* Стили для кнопки */
 .tech-item button, .attachment-item button {
     padding: 12px 25px;
     font-size: 16px;
@@ -457,46 +276,26 @@ body {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.3s cubic-bezier(0.7, 0, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-    transform: translateZ(0);
-}
-
-.tech-item button::before, .attachment-item button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-    transition: all 0.3s ease;
-}
-
-.tech-item button:hover::before, .attachment-item button:hover::before {
-    left: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .tech-item button:hover, .attachment-item button:hover {
     background-color: #e2b109;
-    transform: translateZ(10px) scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Анимация для рейтинга и значка скидки */
-.rating, .discount-badge {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+/* Эффекты при наведении на карточки продуктов */
+.tech-item:hover h3, .attachment-item:hover h3 {
+    color: #fff;
 }
 
-.tech-item:hover .rating, .attachment-item:hover .rating,
-.tech-item:hover .discount-badge, .attachment-item:hover .discount-badge {
-    opacity: 1;
-    transform: translateY(0);
+.tech-item:hover p, .attachment-item:hover p {
+    color: #eee;
 }
 
-/* Стили для рейтинга */
+/* Дополнительные элементы для карточек */
+
+/* Добавление рейтинга */
 .rating {
     position: absolute;
     top: 10px;
@@ -513,7 +312,7 @@ body {
     margin-right: 5px;
 }
 
-/* Стили для значка скидки */
+/* Значок скидки */
 .discount-badge {
     position: absolute;
     top: 10px;
@@ -535,18 +334,6 @@ body {
 
 .search-results h2 {
     font-size: 28px;
-    animation: fadeInText 1s ease forwards;
-}
-
-@keyframes fadeInText {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Анимация появления */
@@ -569,28 +356,8 @@ body {
 .footer {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(45deg, #f1c40f, #e74c3c, #f1c40f, #e74c3c);
-    background-size: 400% 400%;
+    background-color: #222;
     color: #fff;
-    animation: gradientAnimation 15s ease infinite, brutalFadeInFooter 0.8s forwards cubic-bezier(0.7, 0, 0.3, 1);
-    transform-origin: center bottom;
-}
-
-@keyframes brutalFadeInFooter {
-    from {
-        opacity: 0;
-        transform: translateY(100px) scale(0.8) rotateX(45deg) skewY(10deg);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotateX(0deg) skewY(0deg);
-    }
-}
-
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -608,6 +375,7 @@ ul {
 }
 
 .footer {
+    background-color: #333333;
     padding: 50px 0;
 }
 
@@ -628,11 +396,11 @@ ul {
 .footer-col h4::before {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 125px;
     bottom: -10px;
     background-color: #e2b109;
     height: 2px;
+    box-sizing: border-box;
     width: 50px;
 }
 
@@ -677,7 +445,6 @@ ul {
 .footer-col .social-links a:hover {
     color: #24262b;
     background-color: #ffffff;
-    transform: rotate(360deg);
 }
 
 /* Адаптивные стили */
@@ -685,34 +452,34 @@ ul {
 /* Для экранов шире 1200px (десктопы) */
 @media (min-width: 1201px) {
     .product-container {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки на экранах шире 1200px */
     }
 
     .tech-item, .attachment-item {
-        max-width: 250px;
-        margin: auto;
+        max-width: 250px; /* Максимальная ширина карточки */
+        margin: auto; /* Центрирование карточки */
     }
 }
 
 /* Для планшетов и больших экранов */
 @media (max-width: 1200px) and (min-width: 992px) {
     .product-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на экранах от 992px до 1200px */
     }
 
     .tech-item, .attachment-item {
-        max-width: 280px;
+        max-width: 280px; /* Уменьшение максимальной ширины карточки */
     }
 }
 
 /* Для планшетов и небольших экранов */
 @media (max-width: 992px) {
     .product-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на экранах от 768px до 992px */
     }
 
     .tech-item, .attachment-item {
-        max-width: 100%;
+        max-width: 100%; /* Полная ширина карточки */
     }
 
     .popular-tech h2, .attachments h2 {
@@ -764,15 +531,15 @@ ul {
         margin-bottom: 15px;
     }
     .hero .search-box {
-        flex-direction: column;
-        width: 100%;
-        max-width: none;
+        flex-direction: column; /* Размещаем элементы вертикально */
+        width: 100%; /* Строка поиска занимает всю ширину */
+        max-width: none; /* Отменяем ограничение максимальной ширины */
         margin-top: 20px;
     }
     .search-box input {
         width: 100%;
-        border-radius: 5px;
-        margin-bottom: 10px;
+        border-radius: 5px; /* Полностью закругляем */
+        margin-bottom: 10px; /* Отступ снизу */
     }
 
     .category {
@@ -783,10 +550,10 @@ ul {
         font-size: 28px;
     }
     .product-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на экранах от 768px до 992px */
     }
     .tech-item, .attachment-item {
-        width: 100%;
+        width: 100%; /* Полная ширина карточки */
     }
     .footer-col {
         width: 50%;
@@ -810,7 +577,7 @@ ul {
     }
     .hero h1 {
         font-size: 32px;
-        margin-top: -100px;
+        margin-top: -100px; /* Поднимаем текст выше */
     }
     .search-box input {
         font-size: 14px;
@@ -826,23 +593,23 @@ ul {
         font-size: 24px;
     }
     .product-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 колонка на экранах до 768px */
     }
     .tech-item, .attachment-item {
         width: 100%;
-        padding: 15px;
+        padding: 15px; /* Уменьшение паддингов */
     }
     .tech-item h3, .attachment-item h3 {
-        font-size: 18px;
+        font-size: 18px; /* Уменьшение размера шрифта */
         margin-bottom: 10px;
     }
     .tech-item p, .attachment-item p {
-        font-size: 14px;
+        font-size: 14px; /* Уменьшение размера шрифта */
         margin-bottom: 15px;
     }
     .tech-item button, .attachment-item button {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 10px 20px; /* Уменьшение паддингов */
+        font-size: 14px; /* Уменьшение размера шрифта */
     }
     .footer-col {
         width: 100%;
@@ -900,106 +667,73 @@ ul {
     }
 }
 
-/* Стили выпадающего списка на поиске */
+/* стили выпадающего списка на поиске */
 
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -25%;
     background-color: #333;
-    border-radius: 0;
+    border-radius: 8px;
     padding: 10px 0;
-    width: 100%;
-    max-height: 300px;
+    width: 150%;
+    max-height: 500px;
     overflow-y: auto;
     list-style: none;
     margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: slideDown 0.3s ease;
     z-index: 1000;
+    padding: 10px;
+
 }
+
 
 .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px;
-    cursor: pointer;
-    color: #f0f0f0;
-    transition: background-color 0.2s;
-    opacity: 0;
-    animation: fadeInItem 0.5s forwards;
-}
-
-.dropdown-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.dropdown-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.dropdown-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.dropdown-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-@keyframes fadeInItem {
-    to {
-        opacity: 1;
-    }
+    display: flex; /* Использует Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    padding: 5px 12px; /* Отступы вокруг элемента */
+    cursor: pointer; /* Курсор указателя при наведении */
+    color: #f0f0f0; /* Цвет текста */
+    transition: background-color 0.2s; /* Плавный переход фона при наведении */
 }
 
 .dropdown-item:hover {
     background-color: #444;
     border-radius: 10px;
+
 }
 
+/* Увеличенное изображение */
 .dropdown-img {
-    width: 80px;
-    height: 60px;
+    width: 110px; /* Увеличен размер изображения */
+    height: 80px; /* Увеличен размер изображения */
     object-fit: cover;
-    margin-right: 8px;
+    margin-right: 8px; /* Уменьшен отступ справа */
     border-radius: 4px;
-    transition: transform 0.3s ease;
 }
 
-.dropdown-item:hover .dropdown-img {
-    transform: scale(1.1);
-}
-
+/* Уменьшенные стили для текста и цены */
 .dropdown-name {
     font-weight: bold;
-    flex: 1;
-    font-size: 14px;
+    flex: 1; /* Позволяет названию занимать доступное пространство */
+    font-size: 16px; /* Размер текста для заголовка */
     color: #f0f0f0;
-    margin: 0;
+    margin: 0; /* Удалены все отступы */
 }
 
 .dropdown-price {
-    font-size: 12px;
+    font-size: 14px; /* Размер шрифта для цены */
     color: #aaa;
-    margin-left: 8px;
-    white-space: nowrap;
+    margin-left: 8px; /* Уменьшен отступ слева */
+    white-space: nowrap; /* Предотвращает перенос строки */
 }
 
 /* Стили для "совпадений не найдено" */
 .no-results {
     text-align: center;
     color: #ccc;
-    padding: 10px;
-    animation: fadeInNoResults 0.5s ease forwards;
-}
-
-@keyframes fadeInNoResults {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 /* Анимация выпадения */
@@ -1014,212 +748,294 @@ ul {
     }
 }
 
-/* Адаптивные стили для экранов шире 768px */
-@media (min-width: 768px) {
+/* Адаптивные стили для экранов шириной меньше 768px */
+@media (max-width: 768px) {
     .dropdown-menu {
-        width: 350px;
-        left: auto;
-        right: 0;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%; /* Установите ширину на 100% на мобильных устройствах */
+        left: 0;
     }
 
     .dropdown-item {
-        padding: 5px 12px;
+        padding: 8px; /* Увеличьте отступы на мобильных устройствах */
     }
 
     .dropdown-img {
-        width: 110px;
-        height: 80px;
+        width: 80px; /* Немного меньше для мобильных */
+        height: 60px; /* Немного меньше для мобильных */
+        margin-right: 8px; /* Уменьшен отступ справа */
     }
 
     .dropdown-name {
-        font-size: 16px;
+        font-size: 12px; /* Еще меньше текст на мобильных */
     }
 
     .dropdown-price {
-        font-size: 14px;
+        font-size: 10px; /* Цена еще меньше */
     }
 }
 
-/* Полоса прокрутки только на ПК */
+
+/*чтобы полоса прокрутки была только на пк, на телефоне она и так врое норм */
 @media (min-width: 1080px) {
     .dropdown-menu::-webkit-scrollbar {
-        width: 10px;
+        width: 10px; /* Ширина полосы прокрутки */
     }
 
     .dropdown-menu::-webkit-scrollbar-track {
-        background: #444;
-        border-radius: 5px;
+        background: #444; /* Цвет фона трека полосы прокрутки */
+        border-radius: 5px; /* Закругление углов трека */
     }
 
     .dropdown-menu::-webkit-scrollbar-thumb {
-        background: #676767;
-        border-radius: 5px;
+        background: #676767; /* Цвет самого ползунка */
+        border-radius: 5px; /* Закругление углов ползунка */
     }
 
     .dropdown-menu::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        background: #555; /* Цвет ползунка при наведении */
     }
 }
+
+
+ /* ---------------------------------------- */
+
 
 /* Основной контейнер для категорий */
+
 .categories {
-    display: flex;
-    justify-content: center;
-    padding: 30px 0;
-    background-color: #222;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
-.categories .category {
-    animation: slideInCategory 0.5s ease forwards;
-    opacity: 0;
-}
-
-.categories .category:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.categories .category:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.categories .category:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.categories .category:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-@keyframes slideInCategory {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    display: flex; /* Flex-контейнер для выравнивания элементов по горизонтали */
+    justify-content: center; /* Центрирует содержимое по горизонтали */
+    padding: 15px 30px; /* Отступы сверху и снизу */
+    background-color: #222; /* Темный цвет фона для выделения блока */
+     flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку при недостатке места */
 }
 
 /* Отступ сверху для секции категорий */
 #categories {
-    margin-top: 80px;
+    margin-top: 80px; /* Отделяет секцию от верхних элементов */
 }
 
 /* Стили для каждой категории */
 .category {
-    color: #fff;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease;
-    border: 1px solid #f1c40f;
-    border-radius: 25px;
-    position: relative;
-    overflow: hidden;
+    color: #fff; /* Цвет текста для категорий - белый */
+    padding: 10px 20px; /* Внутренние отступы (сверху/снизу и слева/справа) */
+    margin: 5px; /* Отступы между кнопками категорий */
+    cursor: pointer; /* Указатель мыши меняется на "указатель" при наведении */
+    font-weight: 500; /* Полужирный текст */
+    transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход для фона и текста */
+    border: 1px solid #f1c40f; /* Желтая рамка вокруг категории */
+    border-radius: 25px; /* Закругленные углы рамки */
+    position: relative; /* Относительное позиционирование для вложенных элементов (меню) */
 }
 
-.category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: all 0.5s ease;
-}
-
-.category:hover::before {
-    left: 100%;
-}
-
+/* Стили для активных или наведенных категорий */
 .category.active,
 .category:hover {
-    background-color: #f1c40f;
-    color: #222;
+    background-color: #f1c40f; /* Цвет фона при наведении - желтый */
+    color: #222; /* Цвет текста при наведении - темно-серый */
+
 }
 
 /* Стили для выпадающего меню */
 .submenu {
-    white-space: nowrap;
-    width: auto;
-    max-width: 1000px;
-    min-width: 300px;
+    white-space: nowrap; /* Запрещаем перенос текста */
+    width: auto; /* Автоматическая ширина в зависимости от содержимого */
+    max-width: 1000px; /* Максимальная ширина меню */
+    min-width: 300px; /* Минимальная ширина меню для лучшего отображения */
+    position: absolute; /* Абсолютное позиционирование для выпадающего меню */
+    top: calc(100% + 10px); /* Располагаем меню под кнопкой категории */
+    left: -25%; /* Выравниваем меню по левому краю кнопки категории */
+    background-color: rgba(39, 39, 39, 0.95); /* Цвет фона для выпадающего меню с небольшой прозрачностью */
+    padding: 15px 30px; /* Отступы внутри меню */
+    border-radius: 15px; /* Закругленные углы для меню */
+    gap: 90px; /* Промежуток между колонками в меню */
+    z-index: 10; /* Уровень слоя, чтобы меню отображалось поверх других элементов */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавный переход для прозрачности и видимости */
+    visibility: hidden; /* Изначально скрываем меню */
+}
+
+/* Псевдоэлемент для увеличения области наведения */
+.category:hover .submenu::before {
+    content: ""; /* Необходим для создания пустого элемента */
     position: absolute;
-    top: calc(100% + 10px);
-    left: -25%;
-    background-color: rgba(39, 39, 39, 0.95);
-    padding: 15px 30px;
-    border-radius: 15px;
-    gap: 90px;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    visibility: hidden;
+    top: -10px; /* Поднимаем псевдоэлемент на 10px вверх */
+    left: 0; /* Выровнено по левому краю */
+    right: 0; /* Выровнено по правому краю */
+    bottom: 100%; /* Устанавливаем его под кнопкой */
+    height: 10px; /* Высота псевдоэлемента */
 }
 
+/* Правило для отображения меню при наведении на категорию */
 .category:hover .submenu {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
+    display: flex; /* Показываем выпадающее меню при наведении на категорию */
+    opacity: 1; /* Меню становится видимым */
+    visibility: visible; /* Делаем меню видимым */
 }
 
+/* Скрытие меню при уходе мыши */
 .category .submenu {
-    display: none;
+    display: none; /* Скрываем меню по умолчанию */
 }
 
+/* Стили для колонок внутри выпадающего меню */
 .column {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flex-контейнер для вертикального расположения подкатегорий */
+    flex-direction: column; /* Элементы выстраиваются в колонку */
 }
 
+
+.subcategory a,
+.subsubcategory a{
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+
+/* Стили для подкатегорий */
 .subcategory,
 .subsubcategory {
-    color: #fff;
-    padding: 10px 0;
-    font-weight: bold;
-    transition: background-color 0.3s ease, text-decoration 0.3s ease;
-    position: relative;
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSubmenu 0.5s ease forwards;
+
+    color: #fff; /* Цвет текста подкатегорий - белый */
+    padding: 10px 0; /* Отступы сверху и снизу для подкатегорий */
+    font-weight: bold; /* Жирный текст для подкатегорий */
+    transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход цвета фона и подчеркивания */
+    position: relative; /* Относительное позиционирование для подкатегорий */
+    display: inline-block; /* Используйте inline-block, чтобы элемент занимал ширину контента */
 }
 
-.subcategory:nth-child(n) {
-    animation-delay: calc(0.1s * n);
-}
-
-@keyframes fadeInSubmenu {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .subcategory {
-    font-size: 1.4em;
-    margin-bottom: 10px;
+    color: #fff; /* Цвет текста подкатегорий - белый */
+
+    font-weight: bold; /* Жирный текст для подкатегорий */
+    font-size: 1.4em; /* Увеличенный размер шрифта для подкатегорий */
+    margin-bottom: 10px; /* Отступ снизу для подкатегорий */
+    transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Плавный переход цвета фона и подчеркивания */
+    position: relative; /* Относительное позиционирование для подкатегорий */
 }
 
-.subcategory:hover,
-.subsubsubcategory:hover {
-    text-shadow: 0 0 15px rgba(150, 150, 150, 1), 0 0 30px rgba(150, 150, 150, 0.5);
+
+
+/* Стили для активных или наведенных категорий */
+.category.active,
+.category:hover {
+    background-color: #f1c40f; /* Цвет фона при наведении - желтый */
+    color: #222; /* Цвет текста при наведении - темно-серый */
+
 }
+
+
+/* Эффект тени для текста при наведении */
+.subcategory:hover,
+.subsubcategory:hover {
+    text-shadow: 0 0 15px rgba(150, 150, 150, 1), /* Основная тень (еще темнее) */
+                 0 0 30px rgba(150, 150, 150, 0.5); /* Вторая тень для подсветки (еще темнее) */
+}
+
+/* Эффект тени для полоски при наведении */
+.subcategory:hover::after,
+.subsubcategory:hover::after {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1), /* Тень полоски */
+                0 0 20px rgba(255, 255, 255, 0.5); /* Более размытую тень */
+}
+
+
 
 @media (max-width: 600px) {
     .categories {
-        padding: 20px 0;
+        padding: 20px 0; /* Уменьшение отступов на маленьких экранах */
     }
 
     .category {
-        flex: 1 1 100%;
-        margin: 5px 0;
+        flex: 1 1 100%; /* Каждая категория будет занимать всю ширину строки */
+        margin: 5px 0; /* Убрать боковые отступы для удобства */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

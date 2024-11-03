@@ -3,61 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toggle Content with Animation</title>
+<title>Advanced Gradient Animation</title>
 <style>
-  /* Основной стиль контейнера */
-  .content-wrapper {
+  /* Убираем отступы */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Устанавливаем размер на весь экран */
+  body, html {
+    height: 100%;
     overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease; /* Плавная анимация */
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  /* Стиль для видимого состояния */
-  .content-wrapper.open {
-    max-height: 500px; /* Указываем примерное значение, достаточное для большинства текстов */
+
+
+  /* Ключевые кадры для движения слоев */
+  @keyframes move {
+    0% { transform: translate(-10%, -10%) scale(1); }
+    100% { transform: translate(10%, 10%) scale(1.2); }
   }
-  .content {
-    padding: 20px;
-    background: #f1f1f1;
+
+  @keyframes move2 {
+    0% { transform: translate(10%, -10%) scale(1); }
+    100% { transform: translate(-10%, 10%) scale(1.3); }
   }
-  /* Кнопка для переключения */
-  .toggle-btn {
-    margin: 10px 0;
-    padding: 10px 20px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+
+  @keyframes move3 {
+    0% { transform: translate(-10%, 10%) scale(1); }
+    100% { transform: translate(10%, -10%) scale(1.1); }
   }
 </style>
 </head>
 <body>
-
-<h2>Плавная анимация разворачивания и сворачивания контента</h2>
-
-<!-- Кнопка переключения -->
-<button class="toggle-btn">Показать больше</button>
-
-<!-- Контейнер для анимации -->
-<div class="content-wrapper" id="contentWrapper">
-  <div class="content">
-    <p>
-      Это пример контента. Здесь можно разместить любой текст, изображения или другие элементы.
-      Если текста много, он автоматически подстроится под контейнер.
-      Плавная анимация сделает переход между состояниями более приятным для глаз.
-    </p>
-  </div>
-</div>
-
-<script>
-  // Обработчик клика для кнопки
-  document.querySelector('.toggle-btn').addEventListener('click', function() {
-    const contentWrapper = document.getElementById('contentWrapper');
-    contentWrapper.classList.toggle('open'); // Переключаем класс
-
-    // Изменяем текст кнопки в зависимости от состояния
-    this.textContent = contentWrapper.classList.contains('open') ? 'Скрыть' : 'Показать больше';
-  });
-</script>
-
+  <!-- Слои для фона -->
+  <div class="background layer1"></div>
+  <div class="background layer2"></div>
+  <div class="background layer3"></div>
 </body>
 </html>
