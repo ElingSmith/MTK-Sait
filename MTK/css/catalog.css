@@ -1,0 +1,93 @@
+/* Стиль для контейнера с товарами */
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки по умолчанию */
+    gap: 20px; /* Расстояние между товарами */
+    margin-top: 20px;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin-left: auto;
+    margin-right: auto; /* Центрируем контейнер */
+}
+
+#loading-indicator {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    color: #555;
+}
+
+.tech-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+    #product-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки для экранов шириной меньше 1200px */
+    }
+}
+
+@media (max-width: 900px) {
+    #product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки для экранов шириной меньше 900px */
+    }
+}
+
+@media (max-width: 600px) {
+    #product-list {
+        grid-template-columns: 1fr; /* 1 колонка для экранов шириной меньше 600px */
+    }
+}
+
+
+.tech-item img {
+    width: 100%;  /* Ограничение на ширину изображений */
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+
+/* Основные стили контейнера */
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+/* Стили блока с карточками товаров */
+.product-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.product-grid .tech-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}

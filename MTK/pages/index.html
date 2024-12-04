@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTK - Премиальная спецтехника</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Логотип MTK">
+
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Главная</a>
+            <a href="o_nas.html">О нас</a>
+            <a href="#">Контакты</a>
+            <a href="cart.html">Корзина</a>
+        </nav>
+        <div class="header-contact">
+            <p>Телефон: +8 (800) 000 33 45</p>
+        </div>
+        <!-- бургер-меню -->
+        <div class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+
+
+<section id="categories" class="categories">
+        <div class="category">
+            <a href="spectex.html" >
+            Спецтехника
+            </a>
+            <div class="submenu">
+                <div class="column">
+                    <div class="subcategory"><a href="catalog.html?category=pogruzchiki&subcat=Pogruz">Погрузчики</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=frontalnye">Фронтальные</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Телескопические</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=mini">Мини погрузчики</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=vilochnye" style="text-decoration: none;">Вилочные</a></div>
+                </div>
+                <div class="column">
+                    <div class="subcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=ekskavator-pogruzchik">Дорожно-строительная техника</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=katki">Катки</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=bulldoziery">Бульдозеры</a></div>
+                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=greydery">Грейдеры</a></div>
+                </div>
+            </div>
+        </div>
+
+     <div class="category">
+        Навесное оборудование
+        <div class="submenu" style="left: -50%;">
+            <div class="column">
+                <div class="subsubcategory">Быстросъемные каретки</div>
+                <div class="subsubcategory">Виброплиты</div>
+                <div class="subsubcategory">Вилы паллетные</div>
+                <div class="subsubcategory">Гидромолоты</div>
+            </div>
+            <div class="column">
+                <div class="subsubcategory">Захваты</div>
+                <div class="subsubcategory">Ковши</div>
+                <div class="subsubcategory">Ковши миксеры</div>
+                <div class="subsubcategory">Корчеватели</div>
+            </div>
+            <div class="column">
+                <div class="subsubcategory">Крановые установки</div>
+                <div class="subsubcategory">Люльки монтажные</div>
+                <div class="subsubcategory">Отвалы</div>
+                <div class="subsubcategory">Рыхлители</div>
+            </div>
+            <div class="column">
+                <div class="subsubcategory">Траншеекопатели</div>
+                <div class="subsubcategory">Шнекоротор</div>
+                <div class="subsubcategory">Щетки дорожные</div>
+                <div class="subsubcategory">Экскаваторные навески</div>
+                <div class="subsubcategory">Ямобуры</div>
+            </div>
+        </div>
+     </div>
+
+
+
+
+    <div class="category">Коммерческие автомобили</div>
+    <div class="category">Нерудные материалы</div>
+    <div class="category">Вывоз грунта</div>
+</section>
+
+
+    <section class="hero">
+        <div>
+            <h1>Откройте мир возможностей с продукцией компании МТК</h1>
+
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск техники...">
+                <ul id="searchDropdown" class="dropdown-menu"></ul>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+        <div id="product-list" class="product-list"></div>
+
+
+
+
+    <!-- мб на телефонах сделать чтобы можно было пролистывать полпулярную технику (ат много места занимает, либо вообще для телефонов убрать -->
+
+      <h2 class="popular-tech">Популярная техника</h2>
+
+
+    <section  id="popularTech" class="product-container ">
+
+
+
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Загаловок</h4>
+            <ul>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О компании</a></li>
+              <li><a href="#">Каталог</a></li>
+              <li><a href="#">Корзина</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Связаться с нами</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>  Московская область, Раменский район на территории "ПРОМПАРК А107" </li>
+              <li> <a href="88005117008"> <i class="fas fa-phone"></i> 88005117008</a></li>
+              <li> <a href="ooomtk28@gmail.com"> ooomtk28@gmail.com</a> </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Скрипт для управления бургер-меню -->
+    <script src="../js/script.js"></script>
+    <script src="product.js"></script>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            const burgerMenu = document.querySelector('.burger-menu');
+            navbar.classList.toggle('open');
+            burgerMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
