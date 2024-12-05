@@ -1,96 +1,146 @@
-/* Кнопка фильтров для мобильных */
-.filter-button {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    padding: 10px;
-    background-color: #f1c40f;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+/* Основной контейнер фильтров */
+.filters-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-/* Показ кнопки фильтров на мобильных устройствах */
-@media screen and (max-width: 768px) {
-    .filter-button {
+/* Заголовок фильтров и кнопка для скрытия/раскрытия */
+.filter-toggle-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #f8a600;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Скрытие кнопки на мобильных устройствах (когда фильтры скрыты) */
+.filter-toggle-button.hidden {
+    display: none;
+}
+
+/* Контейнер для каждого фильтра */
+.filter-item {
+    margin-bottom: 20px;
+}
+
+/* Метки фильтров */
+.filter-item label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Стиль для ползунков */
+.filter-item input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Стиль для числовых полей ввода */
+.filter-item input[type="number"] {
+    width: 80px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Тексты, отображающие единицы измерения */
+.filter-item span {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Контейнер для кнопок "Применить фильтры" и "Сбросить фильтры" */
+.filter-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Кнопки фильтров */
+.filter-actions button {
+    background-color: #f8a600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для скрытия фильтров на мобильных устройствах */
+@media (max-width: 768px) {
+    .filters-body {
+        display: none;
+    }
+
+    /* Показываем кнопку для раскрытия фильтров на мобильных устройствах */
+    .filter-toggle-button {
         display: block;
     }
 }
-
-/* Контейнер фильтров */
-.filters-container {
+/* Общие стили для ползунков */
+.range-wrapper {
     display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: rgba(34, 34, 34, 0.9);
-    position: absolute;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease;
-    z-index: 999;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Когда фильтры открыты */
-.filters-container.open {
-    right: 0;
+.range-slider {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
 }
 
-/* Фильтры */
-.filter-item {
-    margin-bottom: 15px;
-    background-color: #333;
-    padding: 15px;
-    border-radius: 10px;
-    color: #fff;
+.range-slider input[type="range"] {
+    width: 45%;
+    margin: 0 5px;
 }
 
-.filter-item input, .filter-item select {
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: #fff;
+/* Стили для полей ввода чисел */
+.filter-input {
+    width: 80px;
+    margin: 0 5px;
 }
 
-.filter-item input[type="range"] {
+/* Стили для ползунков */
+input[type="range"] {
     -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
-    background: #555;
+    appearance: none;
+    height: 6px;
+    background: #ddd;
     border-radius: 5px;
     outline: none;
+    transition: background 0.3s;
 }
 
-.filter-item input[type="range"]:focus {
-    box-shadow: 0 0 5px rgba(241, 196, 15, 0.6);
+input[type="range"]:focus {
+    background: #f39c12;
 }
 
-/* Кнопка "Применить" и "Сбросить" */
-.filter-actions button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    background-color: #f1c40f;
-    border: none;
-    border-radius: 8px;
-    color: #1a1a1a;
-    font-size: 16px;
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f39c12;
     cursor: pointer;
 }
 
-/* Плавная анимация для карточек товаров */
-.product-card {
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
+input[type="range"]:active::-webkit-slider-thumb {
+    background: #e67e22;
 }

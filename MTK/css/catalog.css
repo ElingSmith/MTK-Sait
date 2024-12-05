@@ -4,7 +4,7 @@
     grid-template-columns: repeat(4, 1fr); /* 4 колонки по умолчанию */
     gap: 20px; /* Расстояние между товарами */
     margin-top: 20px;
-    max-width: 1200px; /* Максимальная ширина контейнера */
+    max-width: 1600px; /* Максимальная ширина контейнера */
     margin-left: auto;
     margin-right: auto; /* Центрируем контейнер */
 }
@@ -91,3 +91,25 @@
     height: auto;
     margin-bottom: 10px;
 }
+
+.tech-item .product-name {
+    font-size: 16px;
+    color: #e3c238;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.tech-item .product-price {
+    font-size: 14px;
+    color: #a5a5a5; /* Серый цвет для цены */
+    margin-bottom: 15px;
+    text-align: end; /* Выравниваем текст по левому краю */
+
+}
+.tech-item .product-price,
+.tech-item .view-details-btn {
+    line-height: 1; /* Уменьшаем межстрочное расстояние между ценой и кнопкой */
+}
+
+
+
