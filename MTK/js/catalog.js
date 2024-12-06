@@ -12,7 +12,7 @@ function getUrlParams() {
 
 // Функция загрузки товаров
 function loadProducts() {
-    
+
     const { category, subcategory } = getUrlParams();
 
     if (!category || !subcategory) {
@@ -72,6 +72,9 @@ function displayProducts(products) {
         const productCard = document.createElement("div");
         productCard.classList.add("tech-item", "fade-in");
 
+        // Преобразуем product_name в безопасный для URL формат
+        const productUrlName = product.product_name.replace(/\s+/g, '-').toLowerCase();
+
         // Наполняем карточку товара
         productCard.innerHTML = `
             <img src="" data-src="${product.image}" alt="${product.product_name}" class="lazy">
@@ -80,11 +83,14 @@ function displayProducts(products) {
             <button class="view-details-btn">Подробнее</button>
         `;
 
-        // Добавляем обработчик для кнопки "Подробнее"
-        productCard.querySelector(".view-details-btn").addEventListener("click", function () {
+        // Добавляем обработчик для всего div
+        productCard.addEventListener("click", function () {
             // Сохраняем товар в localStorage или передаем параметры через URL
+
             localStorage.setItem("selectedProduct", JSON.stringify(product));
-            window.location.href = "product-page.html";
+
+
+            window.location.href = `product-page.html?name=${productUrlName}`;
         });
 
         // Добавляем карточку товара в контейнер

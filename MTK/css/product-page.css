@@ -1,0 +1,414 @@
+/* Стили для страницы товара */
+.product-page h1{
+    font-family: Arial, sans-serif; /* Устанавливает шрифт для текста на странице */
+    color: #edc424; /* Цвет текста — темно-серый */
+}
+
+.nalichie{
+
+    font-size: 14px; /* Уменьшаем размер шрифта */
+
+
+}
+
+.product-page {
+    font-family: Arial, sans-serif; /* Устанавливает шрифт для текста на странице */
+    color: #b3b1b1; /* Цвет текста — темно-серый */
+    background-color: #111; /* Цвет фона страницы — светло-серый */
+}
+
+.product-page .container {
+
+    width: 90%; /* Ширина контейнера равна 90% экрана */
+    max-width: 1100px; /* Максимальная ширина контейнера — 1200px */
+    margin: 0 auto; /* Центрирует контейнер по горизонтали */
+}
+
+/* Хедер */
+.product-page .header {
+    background-color: #0044cc; /* Цвет фона хедера — синий */
+    color: #fff; /* Цвет текста в хедере — белый */
+    padding: 15px 0; /* Внутренний отступ сверху и снизу — 15px */
+}
+
+.product-page .header .logo {
+    font-size: 24px; /* Размер текста логотипа */
+    font-weight: bold; /* Жирное начертание текста логотипа */
+}
+
+.product-page .header .navigation a {
+    color: #fff; /* Цвет ссылок в навигации — белый */
+    text-decoration: none; /* Убирает подчеркивание у ссылок */
+    margin: 0 15px; /* Горизонтальный отступ между ссылками */
+}
+
+/* Основной контейнер */
+.product-page .product-container {
+
+    padding: 20px 0; /* Внутренний отступ сверху и снизу — 20px */
+
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    justify-content: space-between; /* Распределение пространства */
+    gap: 20px; /* Отступы между изображением и информацией */
+    flex-wrap: wrap; /* Позволяет элементам "падать" в новый ряд на маленьких экранах */
+
+}
+
+.product-page .product-images {
+    flex: 7; /* Задает пропорциональную ширину блока изображений */
+
+
+}
+
+.product-page .product-images .main-image img {
+    width: 100%; /* Изображение занимает всю ширину контейнера */
+    max-height: 400px; /* Максимальная высота изображения */
+    object-fit: contain; /* Масштабирует изображение, сохраняя пропорции */
+    border: 1px solid #737373; /* Серый контур изображения */
+    border-radius: 5px;
+
+}
+.product-page .main-image-container {
+    margin-left: 5px; /* Сдвигаем контейнер на 20px вправо */
+}
+
+/* Контейнер для миниатюр */
+.product-page .product-images .image-gallery {
+    display: flex; /* Располагаем миниатюры по горизонтали */
+    gap: 10px; /* Увеличиваем отступы между миниатюрами */
+    padding: 15px; /* Добавляем внутренние отступы для контейнера */
+    padding-top: 20px;
+
+
+    flex-wrap: wrap; /* Делаем перенос для миниатюр, если их много */
+    justify-content: center; /* Выравниваем миниатюры по центру */
+}
+
+.product-page .product-images .image-gallery img {
+    width: 80px; /* Ширина миниатюр */
+    height: 80px; /* Высота миниатюр */
+    object-fit: cover; /* Миниатюры заполняют свои рамки, обрезая лишнее */
+    cursor: pointer; /* Курсор меняется на указатель при наведении */
+    border: 1px solid #373532; /* Контур миниатюр */
+    border-radius: 5px; /* Скругление углов */
+
+    transition: transform 0.2s, border-color 0.2s; /* Плавный эффект при наведении */
+}
+
+.product-page .product-images .image-gallery img:hover {
+    transform: scale(1.1); /* Увеличивает миниатюру при наведении */
+    border-color: #ccb100; /* Меняет цвет рамки на желтый */
+    box-shadow: 0 0px 10px rgba(204, 176, 0, 0.6); /* Добавляем светящуюся тень */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для всех эффектов */
+}
+
+
+/* Блок информации о товаре */
+.product-page .product-details {
+    flex: 5; /* Задает пропорциональную ширину блока информации */
+    padding-left: 20px; /* Внутренний отступ слева */
+}
+
+.product-page .product-details .product-title {
+    font-size: 28px; /* Размер шрифта заголовка товара */
+    margin: 0 0 10px; /* Отступ снизу — 10px */
+}
+.fffffff{
+
+    background: #222222;
+    border-radius: 5px;
+}
+.product-page .product-details .product-price {
+    font-size: 24px; /* Размер шрифта цены */
+    color: #dfdbdb; /* Красный цвет цены */
+    margin: 10px 0; /* Вертикальные отступы — 10px */
+}
+
+.product-page .product-details .product-status {
+    color: #cfc12a; /* Зеленый цвет текста статуса товара */
+    font-weight: bold; /* Жирное начертание */
+}
+
+.product-page .product-details .product-buttons {
+    margin: 20px 0; /* Вертикальный отступ сверху и снизу — 20px */
+}
+
+
+.product-page .product-details .buy-button,
+.product-page .product-details .add-to-cart-button {
+    padding: 10px 20px; /* Внутренние отступы кнопок */
+    margin-right: 10px; /* Отступ между кнопками */
+    border: none; /* Убирает границу кнопки */
+    background: #0044cc; /* Синий фон кнопки */
+    color: #fff; /* Белый текст */
+    font-size: 16px; /* Размер текста кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s; /* Плавный эффект изменения цвета фона */
+}
+
+.product-page .product-details .buy-button:hover,
+.product-page .product-details .add-to-cart-button:hover {
+    background: #003399; /* Темно-синий цвет фона при наведении */
+}
+
+.product-page .product-details .product-short-description {
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.product-page .product-details .product-short-description h3 {
+    font-size: 18px; /* Размер шрифта подзаголовка */
+    margin-bottom: 10px; /* Отступ снизу — 10px */
+}
+/*Описание и характеристики */
+
+.product-page .product-description,
+.product-page .product-specifications,
+.product-page .product-reviews {
+    background: #222222; /* Белый фон для блоков описания, характеристик и отзывов. */
+    margin: 20px 0; /* Отступы сверху и снизу между блоками. */
+    padding: 20px; /* Внутренние отступы внутри блоков. */
+    border-radius: 5px; /* Скругленные углы блоков. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для создания эффекта "парения". */
+}
+
+/*Таблица спецификаций */
+.product-page .product-specifications table {
+    width: 100%; /* Таблица занимает всю доступную ширину блока. */
+    border-collapse: collapse; /* Убираем промежутки между границами ячеек. */
+    margin-top: 10px; /* Отступ сверху для отделения от предыдущего содержимого. */
+}
+
+.product-page .product-specifications td {
+    padding: 8px; /* Внутренние отступы внутри ячеек. */
+    border: 1px solid #ccc; /* Серые границы ячеек. */
+}
+
+.product-page .product-specifications td:first-child {
+    font-weight: bold; /* Выделение текста в первой колонке жирным шрифтом. */
+}
+
+/* Отзывы */
+.product-page .product-reviews .review {
+    padding: 10px; /* Внутренние отступы внутри отзыва. */
+    border-bottom: 1px solid #ccc; /* Разделительная линия между отзывами. */
+}
+
+.product-page .product-reviews .review:last-child {
+    border-bottom: none; /* Убираем нижнюю линию у последнего отзыва. */
+}
+
+.product-page .product-reviews .review-form textarea {
+    width: 100%; /* Поле ввода отзыва занимает всю ширину блока. */
+    height: 80px; /* Фиксированная высота для поля ввода. */
+    margin-top: 10px; /* Отступ сверху от предыдущего элемента. */
+    padding: 10px; /* Внутренние отступы для удобства ввода текста. */
+    border: 1px solid #ccc; /* Серые границы поля ввода. */
+    border-radius: 5px; /* Скругленные углы поля ввода. */
+    resize: none; /* Отключаем возможность изменения размера поля. */
+}
+
+.product-page .product-reviews .review-form button {
+    margin-top: 10px; /* Отступ сверху от текстового поля. */
+    padding: 10px 20px; /* Внутренние отступы для кнопки. */
+    background: #0044cc; /* Синий фон для кнопки. */
+    color: #fff; /* Белый текст на кнопке. */
+    border: none; /* Убираем рамку кнопки. */
+    border-radius: 5px; /* Скругленные углы кнопки. */
+    cursor: pointer; /* Указатель мыши изменяется на руку при наведении. */
+    transition: background-color 0.3s; /* Плавный переход цвета при наведении. */
+}
+
+.product-page .product-reviews .review-form button:hover {
+    background: #003399; /* Более тёмный синий фон при наведении. */
+}
+
+/* Футер */
+.product-page .footer {
+    background-color: #0044cc; /* Синий фон футера. */
+    color: #fff; /* Белый текст в футере. */
+    padding: 15px 0; /* Внутренние отступы сверху и снизу. */
+    text-align: center; /* Центрирование текста в футере. */
+}
+
+/* Основной контейнер для изображений */
+.product-images {
+    display: flex; /* Используем флекс-контейнер для расположения изображений. */
+    align-items: flex-start; /* Выравнивание изображений по верхнему краю. */
+    gap: 0px; /* Промежуток между элементами. */
+}
+
+
+
+/* Галерея с миниатюрами  */
+.image-gallery {
+    display: flex; /* Галерея миниатюр располагается как флекс-контейнер. */
+    flex-direction: column; /* Миниатюры располагаются вертикально. */
+    overflow-y: auto; /* Включаем вертикальную прокрутку при превышении высоты. */
+    max-height: 400px; /* Ограничиваем высоту галереи. */
+    width:120px; /* Фиксированная ширина для галереи миниатюр. */
+
+
+
+    padding-right: 10px; /* Внутренний отступ справа. */
+
+    padding-top: 10px; /* Добавляем отступ сверху */
+    scrollbar-width: none; /* Отключаем видимость ползунка в Firefox */
+
+}
+
+
+
+/* Для скрытия ползунка */
+.image-gallery::-webkit-scrollbar {
+    width: 0; /* Убираем вертикальный ползунок */
+    height: 0; /* Убираем горизонтальный ползунок (если есть) */
+}
+
+.image-gallery {
+    overflow-y: scroll; /* Прокрутка по вертикали остается */
+    scrollbar-width: none; /* Для Firefox скрыть ползунок */
+}
+
+
+.image-gallery img {
+    width: 100%; /* Миниатюры занимают всю ширину галереи. */
+    margin-bottom: 10px; /* Отступы между изображениями. */
+    cursor: pointer; /* Курсор-рука при наведении на миниатюру. */
+    transition: transform 0.2s ease; /* Плавный эффект при наведении. */
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1); /* Увеличение изображения при наведении. */
+}
+
+
+/* Основное изображение */
+.main-image {
+    margin-top: 15px; /* Опускаем основное изображение на 10 пикселей вниз */
+}
+
+.main-image img {
+    max-width: 500px; /* Максимальная ширина изображения. */
+    max-height: 400px; /* Максимальная высота изображения. */
+    object-fit: contain; /* Сохраняем пропорции, изображение вписывается в заданные размеры. */
+    border: 1px solid #ddd; /* Лёгкая рамка вокруг изображения. */
+
+}
+
+
+/* Контейнер таблицы */
+
+.product-specifications {
+    margin-top: 40px; /* Отступ сверху для отделения от других блоков. */
+    background-color: #f9f9f9; /* Светло-серый фон. */
+    padding: 20px; /* Внутренние отступы внутри контейнера. */
+    border-radius: 10px; /* Скругленные углы блока. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Нежная тень вокруг контейнера. */
+}
+
+
+/* Таблица характеристик */
+
+#product-specifications-table {
+    width: 100%; /* Таблица занимает всю ширину блока. */
+    border-collapse: collapse; /* Убираем зазоры между границами ячеек. */
+}
+
+#product-specifications-table tr td[colspan="2"] {
+    background-color: #0056b3; /* Тёмно-синий фон для заголовков категорий. */
+    color: #fff; /* Белый текст. */
+    text-align: left; /* Текст выравнивается по левому краю. */
+    padding: 10px; /* Внутренние отступы. */
+    font-weight: bold; /* Жирный текст для акцента. */
+    border-radius: 5px; /* Скруглённые углы. */
+}
+
+#product-specifications-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Чередующийся светло-серый фон для чётных строк. */
+}
+
+#product-specifications-table td {
+    padding: 10px; /* Внутренние отступы ячеек. */
+    border: 1px solid #ddd; /* Серые границы ячеек. */
+    text-align: left; /* Выравнивание текста по левому краю. */
+}
+
+#product-specifications-table td:first-child {
+    font-weight: bold; /* Жирный текст для первой колонки. */
+    color: #333; /* Тёмно-серый цвет текста. */
+    width: 40%; /* Ширина первой колонки. */
+}
+
+#product-specifications-table td:last-child {
+    color: #555; /* Светло-серый текст для второй колонки. */
+    width: 60%; /* Ширина второй колонки. */
+}
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .product-page .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-page .product-images,
+    .product-page .product-details {
+        flex: none;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .product-page .product-images .main-image img {
+        max-height: 300px;
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 20px;
+    }
+
+    .product-page .product-details .buy-button,
+    .product-page .product-details .add-to-cart-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .product-page .product-details .product-status {
+        margin-top: 10px;
+    }
+
+    /* Убираем галерею миниатюр на мобильных */
+    .product-page .product-images .image-gallery {
+        display: none;
+    }
+
+    .product-page .product-description,
+    .product-page .product-specifications,
+    .product-page .product-reviews {
+        padding: 10px;
+    }
+
+    /* Уменьшаем размеры таблицы спецификаций */
+    .product-page .product-specifications td {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-page .product-container {
+        padding: 10px;
+    }
+
+    .product-page .header .navigation a {
+        margin: 0 5px;
+    }
+
+    .product-page .product-details .product-title {
+        font-size: 24px;
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 18px;
+    }
+}

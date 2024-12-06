@@ -16,7 +16,7 @@ const products = {
         "name": "Фронтальный погрузчик МТК 930",
         "price": "5 500 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
-        "image": "images/MTK_930 (6) — копия.jpeg"
+        "image": "images/MTK_930.jpeg"
     },
     "mtk320": {
         "name": "Фронтальный погрузчик МТК 300",
@@ -28,25 +28,25 @@ const products = {
         "name": "Фронтальный погрузчик МТК 930",
         "price": "5 500 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
-        "image": "images/MTK_930 (6) — копия.jpeg"
+        "image": "images/MTK_930.jpeg"
     },
     "mtk9303": {
         "name": "Фронтальный погрузчик МТК 930",
         "price": "5 500 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
-        "image": "images/MTK_930 (6) — копия.jpeg"
+        "image": "images/MTK_930.jpeg"
     },
     "mtk9430": {
         "name": "Фронтальный погрузчик МТК 930",
         "price": "5 500 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
-        "image": "images/MTK_930 (6) — копия.jpeg"
+        "image": "images/MTK_930.jpeg"
     },
     "mtk9530": {
         "name": "Фронтальный погрузчик МТК 930",
         "price": "5 50009909 000 ₽",
         "description": "Отличное сочетание мощности и экономичности.",
-        "image": "images/MTK_930 (6) — копия.jpeg"
+        "image": "images/MTK_930.jpeg"
     }
 };
 

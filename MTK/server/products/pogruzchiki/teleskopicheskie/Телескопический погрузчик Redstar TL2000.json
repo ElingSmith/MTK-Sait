@@ -55,10 +55,12 @@
         }
     },
     "image_product": {
-        "image1": "image1.jpg",
-        "image2": "image2.jpg",
-        "image3": "image3.jpg"
+            "image1": "../images/MTK 926 (1).jpeg",
+            "image2": "../images/MTK_930.jpeg",
+            "image3": "../images/MTK_930.jpeg"
+
     },
+
         "filtr": {
         "Грузоподъемность, кг": 3000,
         "Мощность двигателя, л.с.": 120,
