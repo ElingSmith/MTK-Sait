@@ -62,6 +62,11 @@ function loadProducts() {
         });
 }
 
+
+const formatPrice = (price) => {
+    return new Intl.NumberFormat('ru-RU').format(price);
+};
+
 // Функция отображения товаров
 function displayProducts(products) {
     const productList = document.getElementById("product-list");
@@ -79,7 +84,7 @@ function displayProducts(products) {
         productCard.innerHTML = `
             <img src="" data-src="${product.image}" alt="${product.product_name}" class="lazy">
             <p class="product-name">${product.product_name}</p>
-            <p class="product-price">${product.price}₽</p>
+            <p class="product-price">${formatPrice(product.price)}₽</p>
             <button class="view-details-btn">Подробнее</button>
         `;
 
@@ -100,12 +105,6 @@ function displayProducts(products) {
     // Активация lazy loading для изображений
     activateLazyLoading();
 }
-
-
-
-
-
-
 
 // Функция активации lazy loading
 function activateLazyLoading() {

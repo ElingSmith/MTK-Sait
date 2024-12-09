@@ -80,7 +80,7 @@
 
     /* Галерея миниатюр */
     .product-page .product-images .image-gallery {
-        flex-direction: row; /* Располагаем миниатюры горизонтально */
+        flex-direction: column; /* Располагаем миниатюры горизонтально */
         overflow-x: scroll;
         max-height: none;
         gap: 10px;
@@ -115,6 +115,10 @@
     }
 }
 
+
+
+
+
 /* === Стили для средних устройств (от 769px до 1024px) === */
 @media (min-width: 769px) and (max-width: 1024px) {
     .product-page .product-container {
@@ -133,12 +137,12 @@
     /* Главное изображение */
     .product-page .product-images .main-image img {
         width: 100%;
-        height: 350px;
+        height: 400px;
     }
 
     /* Галерея миниатюр */
     .product-page .product-images .image-gallery {
-        flex-direction: row;
+        flex-direction: column ;
         gap: 15px;
     }
 
@@ -188,9 +192,46 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавляем тень для нажатия */
 }
 
-/* Скрытие галереи на мобильных устройствах */
+/* Галерея миниатюр под изображением на мобильных устройствах */
 @media (max-width: 768px) {
+    .product-page .product-images {
+        display: flex;
+        flex-direction: column; /* Располагаем основное изображение и галерею вертикально */
+        align-items: center; /* Центрируем содержимое */
+    }
+
+    .product-page .product-images .main-image {
+        margin-bottom: 15px; /* Отступ между основным изображением и миниатюрами */
+    }
+
     .product-page .product-images .image-gallery {
-        display: none;
+        display: flex;
+        flex-direction: row; /* Миниатюры располагаются горизонтально */
+        overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+        white-space: nowrap; /* Предотвращаем перенос миниатюр на следующую строку */
+        gap: 10px; /* Расстояние между миниатюрами */
+        padding: 10px 0px; /* Отступы сверху и снизу */
+        width: 100%; /* Галерея занимает всю ширину */
+        scrollbar-width: thin; /* Уменьшенная ширина скроллбара для браузеров, которые поддерживают */
+    }
+
+    .product-page .product-images .image-gallery img {
+        width: 80px; /* Ширина миниатюр */
+        height: 60px; /* Высота миниатюр */
+        object-fit: cover; /* Сохраняем пропорции миниатюр */
+        cursor: pointer; /* Указываем, что миниатюры кликабельные */
+        display: inline-block; /* Миниатюры располагаются в одну линию */
+    }
+
+    /* Скрываем горизонтальную прокрутку, если она не нужна */
+    .product-page .product-images .image-gallery::-webkit-scrollbar {
+        height: 5px; /* Высота скроллбара */
+    }
+    .product-page .product-images .image-gallery::-webkit-scrollbar-thumb {
+        background: #ccc; /* Цвет полосы прокрутки */
+        border-radius: 10px;
+    }
+    .product-page .product-images .image-gallery::-webkit-scrollbar-track {
+        background: transparent;
     }
 }
