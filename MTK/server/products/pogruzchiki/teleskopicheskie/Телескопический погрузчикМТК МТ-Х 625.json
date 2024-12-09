@@ -57,9 +57,18 @@
 
 
     "image_product": {
-            "image1": "../images/MTK 926 (1).jpeg",
-            "image2": "../images/MTK_930.jpeg",
-            "image3": "../images/MTK_930.jpeg"
+        "image1": "../images/MTK 926 (1).jpeg",
+        "image2": "../images/MTK_930.jpeg",
+        "image3": "../images/MTK 926 (1).jpeg",
+        "image4": "../images/MTK 926 (1).jpeg",
+        "image5": "../images/MTK_930.jpeg",
+        "image6": "../images/MTK 926 (1).jpeg",
+        "image7": "../images/MTK 926 (1).jpeg",
+        "image8": "../images/MTK_930.jpeg",
+        "image9": "../images/MTK 926 (1).jpeg",
+        "image10": "../images/MTK 926 (1).jpeg",
+        "image11": "../images/MTK_930.jpeg",
+        "image12": "../images/MTK 926 (1).jpeg"
     },
         "filtr": {
         "Грузоподъемность, кг": 30000,

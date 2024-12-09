@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Добавляем функциональность для карусели
     initializeGallery();
 });
+const formatPrice = (price) => {
+    return new Intl.NumberFormat('ru-RU').format(price);
+};
 
 function populateProductPage(product) {
     // Основное изображение
@@ -34,25 +37,57 @@ function populateProductPage(product) {
         gallery.appendChild(img);
     });
 
+
     // Основные данные товара
     document.getElementById("product-title").textContent = product.product_name;
-    document.getElementById("product-price").textContent = `${product.price} ₽`;
+    document.getElementById("product-price").textContent = `${formatPrice(product.price)} ₽`;
     document.getElementById("product-short-description").textContent = product.short_description || "Краткое описание отсутствует";
 
-    // Характеристики
-    const specificationsTable = document.getElementById("product-specifications-table");
-    for (const [category, specs] of Object.entries(product.characteristics)) {
-        const categoryRow = document.createElement("tr");
-        categoryRow.innerHTML = `<td colspan="2"><strong>${category}</strong></td>`;
-        specificationsTable.appendChild(categoryRow);
+   // Характеристики
+// Характеристики
+const specificationsContainer = document.getElementById("product-specifications-table");
+specificationsContainer.innerHTML = ""; // Очистим контейнер
 
-        for (const [key, value] of Object.entries(specs)) {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td>${key}</td><td>${value}</td>`;
-            specificationsTable.appendChild(row);
+for (const [category, specs] of Object.entries(product.characteristics)) {
+    const categoryDiv = document.createElement("div");
+    categoryDiv.classList.add("spec-category");
+
+    const categoryTitle = document.createElement("h3");
+    categoryTitle.textContent = category;
+    categoryTitle.classList.add("category-title");
+
+    // Если это основные характеристики, то разворачиваем сразу
+    const isMain = category.toLowerCase().includes("основные");
+    const specsList = document.createElement("div");
+    specsList.classList.add("spec-list");
+    if (!isMain) specsList.style.display = "none";
+
+    // Добавляем обработчик клика на весь div.spec-category
+    categoryDiv.addEventListener("click", () => {
+        categoryDiv.classList.toggle("open"); // Переключаем класс для открытия/закрытия
+        if (!isMain) {
+            specsList.style.display = specsList.style.display === "none" ? "block" : "none";
         }
+    });
+
+    // Заполняем характеристики
+    for (const [key, value] of Object.entries(specs)) {
+        const specDiv = document.createElement("div");
+        specDiv.classList.add("spec-item");
+        specDiv.innerHTML = `<span class="spec-key">${key}:</span> <span class="spec-value">${value}</span>`;
+        specsList.appendChild(specDiv);
     }
+
+    categoryDiv.appendChild(categoryTitle);
+    categoryDiv.appendChild(specsList);
+    specificationsContainer.appendChild(categoryDiv);
 }
+
+
+
+
+
+
 
 function initializeGallery() {
     const gallery = document.getElementById("product-gallery");
@@ -87,5 +122,6 @@ function initializeGallery() {
             behavior: "smooth",
         });
     }
+}
 }
 

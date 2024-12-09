@@ -1,0 +1,196 @@
+/* === Базовые стили для мобильных устройств (от 0 до 576px) === */
+@media (max-width: 576px) {
+    /* Контейнеры */
+    .product-page .product-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .product-page .product-images,
+    .product-page .product-details {
+        width: 100%;
+        flex: none;
+        margin-bottom: 15px;
+    }
+
+    /* Главное изображение */
+    .product-page .product-images .main-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Галерея миниатюр */
+    .product-page .product-images .image-gallery {
+        display: none; /* Скрываем галерею миниатюр для упрощения интерфейса */
+    }
+
+    /* Текст и кнопки */
+    .product-page .product-details .product-title {
+        font-size: 20px;
+        text-align: center; /* Центрируем заголовок */
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .product-page .product-details .product-status {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .product-page .product-details .buy-button,
+    .product-page .product-details .add-to-cart-button {
+        width: 100%; /* Кнопки занимают всю ширину */
+        margin-bottom: 10px;
+    }
+
+    /* Таблица спецификаций */
+    .product-page .product-specifications td {
+        font-size: 12px; /* Уменьшаем шрифт для компактного вида */
+        padding: 5px;
+    }
+}
+
+/* === Стили для маленьких планшетов (от 577px до 768px) === */
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Контейнеры */
+    .product-page .product-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-page .product-images {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-page .product-details {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    /* Главное изображение */
+    .product-page .product-images .main-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Галерея миниатюр */
+    .product-page .product-images .image-gallery {
+        flex-direction: row; /* Располагаем миниатюры горизонтально */
+        overflow-x: scroll;
+        max-height: none;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .product-page .product-images .image-gallery img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Текст и кнопки */
+    .product-page .product-details .product-title {
+        font-size: 22px;
+        text-align: left;
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 20px;
+    }
+
+    .product-page .product-details .buy-button,
+    .product-page .product-details .add-to-cart-button {
+        width: auto;
+        margin: 5px;
+    }
+
+    /* Таблица спецификаций */
+    .product-page .product-specifications td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* === Стили для средних устройств (от 769px до 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-page .product-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .product-page .product-images {
+        flex: 7;
+    }
+
+    .product-page .product-details {
+        flex: 5;
+    }
+
+    /* Главное изображение */
+    .product-page .product-images .main-image img {
+        width: 100%;
+        height: 350px;
+    }
+
+    /* Галерея миниатюр */
+    .product-page .product-images .image-gallery {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .product-page .product-images .image-gallery img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Текст и кнопки */
+    .product-page .product-details .product-title {
+        font-size: 24px;
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 22px;
+    }
+}
+
+/* === Стили для больших планшетов и ноутбуков (от 1025px до 1440px) === */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .product-page .product-container {
+        gap: 30px;
+    }
+
+    .product-page .product-images .main-image img {
+        height: 400px;
+    }
+
+    .product-page .product-details .product-title {
+        font-size: 26px;
+    }
+
+    .product-page .product-details .product-price {
+        font-size: 24px;
+    }
+
+    .product-page .product-details .buy-button,
+    .product-page .product-details .add-to-cart-button {
+        padding: 10px 30px;
+    }
+}
+
+/* === Общие стили для всех устройств === */
+.product-page .buy-button,
+.product-page .add-to-cart-button:hover {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавляем тень для нажатия */
+}
+
+/* Скрытие галереи на мобильных устройствах */
+@media (max-width: 768px) {
+    .product-page .product-images .image-gallery {
+        display: none;
+    }
+}

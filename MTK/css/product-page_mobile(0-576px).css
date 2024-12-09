@@ -1,0 +1,190 @@
+/* === Базовые стили для мобильных устройств (от 0 до 576px) === */
+/* === Базовые стили для мобильных устройств (от 0 до 576px) === */
+@media (max-width: 576px) {
+    /* Убираем лишние отступы и делаем контент удобным для чтения */
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Хедер */
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .header .logo img {
+        max-width: 120px;
+        height: auto;
+    }
+
+    .header-contact {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .navbar {
+        display: none; /* Прячем навигацию, заменяем её бургер-меню */
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .burger-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 4px 0;
+    }
+
+    /* Категории */
+    #categories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        background-color: #f1f1f1;
+    }
+
+    .category {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .category a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .submenu {
+        display: none; /* Прячем подменю для упрощения интерфейса */
+    }
+
+    /* Основной контент */
+    .product-page .container {
+        padding: 10px;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Изображения товара */
+    .product-images {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .product-images .main-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .image-gallery {
+        display: none; /* Скрываем галерею для упрощения */
+    }
+
+    /* Детали товара */
+    .product-details {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .product-price {
+        font-size: 16px;
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .product-status {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    .product-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .buy-button,
+    .add-to-cart-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .buy-button:hover,
+    .add-to-cart-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Краткое описание */
+    .product-short-description {
+        text-align: left;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    /* Характеристики */
+    .product-specifications {
+        margin-top: 20px;
+    }
+
+    .product-specifications table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+
+    .product-specifications th,
+    .product-specifications td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .product-specifications th {
+        background-color: #f8f9fa;
+    }
+
+    /* Футер */
+    .footer {
+        padding: 10px;
+        text-align: center;
+        background-color: #f8f9fa;
+        font-size: 12px;
+        border-top: 1px solid #ddd;
+    }
+}

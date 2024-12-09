@@ -40,20 +40,17 @@
 
 /* Основной контейнер */
 .product-page .product-container {
-
     padding: 20px 0; /* Внутренний отступ сверху и снизу — 20px */
-
-
     display: flex;
     align-items: flex-start; /* Выравнивание по верхнему краю */
     justify-content: space-between; /* Распределение пространства */
-    gap: 20px; /* Отступы между изображением и информацией */
+
     flex-wrap: wrap; /* Позволяет элементам "падать" в новый ряд на маленьких экранах */
 
 }
 
 .product-page .product-images {
-    flex: 7; /* Задает пропорциональную ширину блока изображений */
+    flex: 9; /* Задает пропорциональную ширину блока изображений */
 
 
 }
@@ -67,8 +64,15 @@
     border-radius: 5px;
 
 }
+
+
+
+
+
+/* контейнер картинки основной */
 .product-page .main-image-container {
     margin-left: 5px; /* Сдвигаем контейнер на 20px вправо */
+
 }
 
 /* Контейнер для миниатюр */
@@ -105,6 +109,7 @@
     flex: 5; /* Задает пропорциональную ширину блока информации */
     padding-left: 20px; /* Внутренний отступ слева */
 }
+
 
 .product-page .product-details .product-title {
     font-size: 28px; /* Размер шрифта заголовка товара */
@@ -146,7 +151,8 @@
 
 .product-page .product-details .buy-button:hover,
 .product-page .product-details .add-to-cart-button:hover {
-    background-color: #f1c40f; /* Цвет фона при наведении - желтый */
+    background: linear-gradient(to bottom, #f1c40f, #d9a600);
+
     color: #222; /* Цвет текста при наведении - темно-серый */
 }
 
@@ -220,8 +226,8 @@
 /* Галерея с миниатюрами  */
 .image-gallery {
 
-    display: flex; /* Галерея миниатюр располагается как флекс-контейнер. */
-    flex-direction: column; /* Миниатюры располагаются вертикально. */
+
+
     overflow-y: auto; /* Включаем вертикальную прокрутку при превышении высоты. */
     max-height: 400px; /* Ограничиваем высоту галереи. */
     width:120px; /* Фиксированная ширина для галереи миниатюр. */
@@ -275,116 +281,91 @@
 
 
 /* Контейнер таблицы */
-
+/* Общий стиль для секции характеристик */
 .product-specifications {
-    margin-top: 40px; /* Отступ сверху для отделения от других блоков. */
-    background-color: #f9f9f9; /* Светло-серый фон. */
-    padding: 20px; /* Внутренние отступы внутри контейнера. */
-    border-radius: 10px; /* Скругленные углы блока. */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Нежная тень вокруг контейнера. */
+    margin-top: 40px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.product-specifications:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Заголовок каждой категории характеристик */
+.spec-category {
+    margin-bottom: 20px;
+    background-color: #444;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.spec-category:hover {
+    background-color: #555;
+    transform: scale(1.02);
+}
+
+/* Список характеристик внутри категории */
+.spec-list {
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 4px solid #ccc;
+    display: none; /* Скрыто по умолчанию для неосновных характеристик */
+    animation: fadeIn 0.3s ease;
 }
 
 
-/* Таблица характеристик */
-
-#product-specifications-table {
-    width: 100%; /* Таблица занимает всю ширину блока. */
-    border-collapse: collapse; /* Убираем зазоры между границами ячеек. */
-}
-
-#product-specifications-table tr td[colspan="2"] {
-    background-color: #0056b3; /* Тёмно-синий фон для заголовков категорий. */
-    color: #fff; /* Белый текст. */
-    text-align: left; /* Текст выравнивается по левому краю. */
-    padding: 10px; /* Внутренние отступы. */
-    font-weight: bold; /* Жирный текст для акцента. */
-    border-radius: 5px; /* Скруглённые углы. */
-}
-
-#product-specifications-table tr:nth-child(even) {
-    background-color: #f2f2f2; /* Чередующийся светло-серый фон для чётных строк. */
-}
-
-#product-specifications-table td {
-    padding: 10px; /* Внутренние отступы ячеек. */
-    border: 1px solid #ddd; /* Серые границы ячеек. */
-    text-align: left; /* Выравнивание текста по левому краю. */
-}
-
-#product-specifications-table td:first-child {
-    font-weight: bold; /* Жирный текст для первой колонки. */
-    color: #333; /* Тёмно-серый цвет текста. */
-    width: 40%; /* Ширина первой колонки. */
-}
-
-#product-specifications-table td:last-child {
-    color: #555; /* Светло-серый текст для второй колонки. */
-    width: 60%; /* Ширина второй колонки. */
-}
-/* Мобильные стили */
-@media (max-width: 768px) {
-    .product-page .product-container {
-        flex-direction: column;
-        align-items: center;
+/* Анимация появления списка */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
-    .product-page .product-images,
-    .product-page .product-details {
-        flex: none;
-        width: 100%;
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .product-page .product-images .main-image img {
-        height: 300px;
-    }
-
-    .product-page .product-details .product-price {
-        font-size: 20px;
-    }
-
-    .product-page .product-details .buy-button,
-    .product-page .product-details .add-to-cart-button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .product-page .product-details .product-status {
-        margin-top: 10px;
-    }
-
-    /* Убираем галерею миниатюр на мобильных */
-    .product-page .product-images .image-gallery {
-        display: none;
-    }
-
-    .product-page .product-description,
-    .product-page .product-specifications,
-    .product-page .product-reviews {
-        padding: 10px;
-    }
-
-    /* Уменьшаем размеры таблицы спецификаций */
-    .product-page .product-specifications td {
-        padding: 5px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 480px) {
-    .product-page .product-container {
-        padding: 10px;
-    }
+/* Каждый элемент характеристики */
+.spec-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between; /* Ключ слева, значение справа */
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
 
-    .product-page .header .navigation a {
-        margin: 0 5px;
-    }
+.spec-item:hover {
+    background-color: #444;
+}
 
-    .product-page .product-details .product-title {
-        font-size: 24px;
-    }
+/* Ключ характеристики */
+.spec-key {
+    font-weight: bold;
+    color: #fff;
+}
 
-    .product-page .product-details .product-price {
-        font-size: 18px;
-    }
+/* Значение характеристики */
+.spec-value {
+    color: #b3b3b3;
+    font-size: 14px;
+    text-align: right;
+}
+
+/* Раскрытые списки всегда видимы */
+.spec-category.open .spec-list {
+    display: block;
 }
