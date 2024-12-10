@@ -25,7 +25,7 @@ function adjustGalleryLayout() {
     const mainImageContainer = document.querySelector('.main-image-container');
 
     // Проверяем ширину экрана
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 800) {
         // Для экранов больше 768px (ПК) — размещаем галерею слева
         if (gallery !== productImages.firstElementChild) {
             productImages.insertBefore(gallery, mainImageContainer); // Перемещаем галерею в начало
@@ -85,7 +85,7 @@ function populateProductPage(product) {
         categoryTitle.classList.add("category-title");
 
         // Если это основные характеристики, то разворачиваем сразу
-        const isMain = category.toLowerCase().includes("основные");
+        const isMain = category.toLowerCase().includes("Основные");
         const specsList = document.createElement("div");
         specsList.classList.add("spec-list");
         if (!isMain) specsList.style.display = "none";
