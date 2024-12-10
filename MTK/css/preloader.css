@@ -1,0 +1,82 @@
+/* Основной контейнер прелоадера */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Темно-серый фон */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контейнер загрузчика */
+.loader {
+    position: relative;
+    width: 120px; /* Ширина контейнера */
+    height: 120px; /* Высота контейнера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Внешние кольца */
+.ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid transparent; /* Прозрачная граница */
+    border-top: 4px solid #ffd700; /* Желтая верхняя граница */
+    border-radius: 50%; /* Круг */
+    animation: spin 1.5s linear infinite;
+    filter: drop-shadow(0 0 15px #ffd700); /* Эффект сияния */
+    box-sizing: border-box;
+}
+
+/* Второе кольцо */
+.ring:nth-child(2) {
+    width: 80%;
+    height: 80%;
+    animation: spin 2s linear infinite reverse; /* Обратное вращение */
+    border-top: 4px solid #ffaa00; /* Оранжевая верхняя граница */
+    filter: drop-shadow(0 0 15px #ffaa00); /* Эффект сияния */
+}
+
+/* Третье кольцо */
+.ring:nth-child(3) {
+    width: 60%;
+    height: 60%;
+    animation: spin 2.5s linear infinite;
+    border-top: 4px solid #ffcc00; /* Золотистая верхняя граница */
+    filter: drop-shadow(0 0 15px #ffcc00); /* Эффект сияния */
+}
+
+/* Четвертое кольцо */
+.ring:nth-child(4) {
+    width: 40%;
+    height: 40%;
+    animation: spin 3s linear infinite reverse;
+    border-top: 4px solid #ff6600; /* Ярко-оранжевая верхняя граница */
+    filter: drop-shadow(0 0 15px #ff6600); /* Эффект сияния */
+}
+
+/* Новый внутренний круг, ближе к центру */
+.ring:nth-child(5) {
+    width: 30%;
+    height: 30%;
+    animation: spin 3.5s linear infinite reverse; /* Долгая анимация */
+    border-top: 4px solid #ff9999; /* Светло-розовая верхняя граница */
+    filter: drop-shadow(0 0 10px #ff9999); /* Легкое сияние */
+}
+
+/* Анимация вращения */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
