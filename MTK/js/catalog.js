@@ -23,7 +23,7 @@ function loadProducts() {
     const productList = document.getElementById("product-list");
     productList.innerHTML = ""; // Очищаем список товаров
 
-    const folderPath = `http://127.0.0.1:8000/products/${category}/${subcategory}`; // Путь к папке с товарами
+    const folderPath = `http://localhost:8000/products/${category}/${subcategory}`; // Путь к папке с товарами
 
     // Проверим кэш
     const cacheKey = `${category}-${subcategory}`;
