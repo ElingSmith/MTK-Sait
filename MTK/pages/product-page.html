@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/product-page_mobile.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/preloader.css">
+    <link rel="stylesheet" href="../css/categories.css">
 </head>
 <body>
 
@@ -116,34 +117,43 @@
             <div class="fffffff">
             <div class="product-container">
                 <!-- Изображения товара -->
-                <div class="product-images">
 
 
 
-                    <div class="main-image-container">
-                    <div class="main-image">
-                        <img src="" alt="Основное изображение" id="product-main-image">
-                    </div>
-                    </div>
+                    <div class="product-images">
+                      <!-- Главное изображение -->
+                      <div class="main-image-container">
+                        <div class="main-image">
+                          <img src="" alt="Основное изображение" id="product-main-image">
+                        </div>
+                      </div>
 
-                     <div class="image-gallery" id="product-gallery">
+                      <!-- Галерея -->
+
+                      <div class="image-gallery" id="product-gallery">
                         <!-- Вертикальная галерея изображений -->
+                      </div>
+
                     </div>
 
 
-
-                </div>
 
 
                 <!-- Детали товара -->
                 <div class="product-details">
-                    <h1 class="product-title" id="product-title"></h1>
-                    <p class="product-price" id="product-price"></p>
-                    <p class="nalichie" class="product-status" id="product-status">В наличии</p>
+                    <div class="product-container">
+                    <div class="product-cratk_info">
+                        <h1 class="product-title" id="product-title"></h1>
+                        <p class="product-price" id="product-price"></p>
+                        <p class="nalichie" class="product-status" id="product-status">В наличии</p>
+                    </div>
                     <div class="product-buttons">
                         <button class="buy-button" id="buy-button">Купить сейчас</button>
                         <button class="add-to-cart-button" id="add-to-cart-button">Добавить в корзину</button>
                     </div>
+                    </div>
+
+
                     <div class="product-short-description">
                         <h3>Краткое описание</h3>
                         <p id="product-short-description"></p>
@@ -169,6 +179,7 @@
     </div>
     <script src="../js/product-page.js"></script>
     <script src="../js/preloader.js"></script>
+    <script src="../js/burger-menu.js"></script>
 
 </body>
 </html>

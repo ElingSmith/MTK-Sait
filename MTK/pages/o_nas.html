@@ -6,6 +6,7 @@
     <title>О компании MTK</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/blok_o_nas.css">
+    <link rel="stylesheet" href="../css/categories.css">
     <link rel="stylesheet" href="../css/preloader.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -46,22 +47,22 @@
 
     <div class="spacer"></div>
 
-    <section class="blok_o_nas">
-        <div class="blok-content">
-            <!-- Левая часть с кнопками -->
-            <div class="sidebar">
-                <button onclick="showInfo('CompanyInfo')">О компании MTK</button>
-                <button onclick="showInfo('logistics')">Услуги логистики из Китая в Россию</button>
-                <button onclick="showInfo('licenses')">Лицензии</button>
-                <button onclick="showInfo('reviews')">Отзывы</button>
-                <button onclick="showInfo('details')">Реквизиты</button>
+         <section class="blok_o_nas">
+            <div class="blok-content">
+                <!-- Блок с кнопками -->
+                <div class="sidebar">
+                    <button onclick="showInfo('CompanyInfo')" class="toggle-button">О компании MTK</button>
+                    <button onclick="showInfo('logistics')" class="toggle-button">Услуги логистики из Китая в Россию</button>
+                    <button onclick="showInfo('licenses')" class="toggle-button">Лицензии</button>
+                    <button onclick="showInfo('reviews')" class="toggle-button">Отзывы</button>
+                    <button onclick="showInfo('details')" class="toggle-button">Реквизиты</button>
+                </div>
+
+                <!-- Контентная часть с текстом -->
+                <div class="content-display" id="content-display"></div>
             </div>
+        </section>
 
-           <!-- правая часть с текстом -->
-
-            <div class="content-display"></div>
-        </div>
-    </section>
 
     <div class="spacer"></div>
 

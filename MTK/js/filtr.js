@@ -140,9 +140,6 @@ function applyFilters(products) {
 }
 
 // Функция для загрузки товаров (заглушка)
-function loadProducts() {
-    // Здесь можно загружать товары, например, из API
-}
 
 // Генерация фильтров и отображение товаров
 generateFilters(getAllProducts());

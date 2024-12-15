@@ -14,32 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Добавляем функциональность для карусели
     initializeGallery();
 
-    // Настройка расположения галереи в зависимости от размера экрана
-    adjustGalleryLayout();
 });
-
-// Функция для корректировки расположения галереи
-function adjustGalleryLayout() {
-    const gallery = document.getElementById("product-gallery");
-    const productImages = document.querySelector('.product-images');
-    const mainImageContainer = document.querySelector('.main-image-container');
-
-    // Проверяем ширину экрана
-    if (window.innerWidth > 800) {
-        // Для экранов больше 768px (ПК) — размещаем галерею слева
-        if (gallery !== productImages.firstElementChild) {
-            productImages.insertBefore(gallery, mainImageContainer); // Перемещаем галерею в начало
-        }
-    } else {
-        // Для экранов меньше или равных 768px (мобильные устройства) — размещаем галерею снизу
-        if (gallery !== productImages.lastElementChild) {
-            productImages.appendChild(gallery); // Перемещаем галерею в конец
-        }
-    }
-}
-
-// Вызываем функцию при изменении размера окна
-window.addEventListener('resize', adjustGalleryLayout);
 
 const formatPrice = (price) => {
     return new Intl.NumberFormat('ru-RU').format(price);

@@ -1,18 +1,48 @@
 
-/* Бургер-меню кнопка */
+/* Базовый стиль бургер-меню */
 .burger-menu {
-    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px; /* ширина кнопки */
+    height: 18px; /* высота кнопки */
     cursor: pointer;
-    padding: 10px 15px;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    float: right;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 10;
 }
+
+/* Линии бургер-меню */
+.burger-menu span {
+    display: block;
+    width: 100%; /* Полная ширина линии */
+    height: 3px; /* Толщина линии */
+    background-color: #333; /* Цвет линии */
+    border-radius: 3px; /* Закругленные края */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Активное состояние для верхней линии */
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg); /* Сдвигаем и поворачиваем верхнюю линию */
+}
+
+/* Активное состояние для средней линии */
+.burger-menu.active span:nth-child(2) {
+    opacity: 0; /* Средняя линия исчезает */
+}
+
+/* Активное состояние для нижней линии */
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg); /* Сдвигаем и поворачиваем нижнюю линию */
+}
+
+/* При выходе из активного состояния */
+.burger-menu span:not(.active) {
+    width: 100%; /* Возвращение линий к исходной ширине */
+}
+
+
+
 
 .burger-menu:hover {
     transform: scale(1.1);
@@ -24,17 +54,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh; /* Меню занимает всю высоту экрана */
     width: 300px;
     background-color: #333;
     color: white;
-    z-index: 1002;
+    z-index: 9999; /* Увеличиваем z-index */
     padding: 20px 15px;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
 }
+
 
 .burger-menu-content.show {
     transform: translateX(0);
@@ -175,17 +206,18 @@
 
 }
 
-/* Затмение фона */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Сделаем его по высоте всего экрана */
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
-    z-index: 999;
+    z-index: 9998; /* Чтобы оно было под меню */
 }
+
+
 
 /* Скрытие бургер-меню на экранах больше 768px */
 @media (min-width: 768px) {
@@ -195,6 +227,10 @@
 
     .burger-menu-content {
         display: none;
+    }
+
+    .burger-menu-container{
+         display: none;
     }
 }
 
@@ -214,3 +250,8 @@
 }
 
 
+.menu-divider {
+    border: none;
+    border-top: 1px solid #555; /* Цвет и толщина линии */
+    margin: 15px 0; /* Отступы сверху и снизу */
+}

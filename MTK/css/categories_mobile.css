@@ -1,0 +1,172 @@
+/* Скрываем основной блок категорий на экранах меньше 768px */
+@media (max-width: 768px) {
+    #categories {
+        display: none; /* Скрываем основной блок категорий */
+    }
+
+    /* Стиль для бокового меню */
+    .categories-sidebar {
+        display: none; /* Скрыто по умолчанию */
+        position: fixed;
+        top: 0;
+        left: -250px; /* Скрыто слева, вне экрана */
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        transition: left 0.3s ease-in-out; /* Анимация сдвига */
+        padding: 15px;
+        z-index: 1000; /* Убедитесь, что z-index не выше, чем у других блоков */
+        overflow-y: auto;
+    }
+
+    /* Когда меню открыто, оно будет выезжать */
+    .categories-sidebar.open {
+        left: 0; /* Сдвигаем меню в видимую область */
+    }
+
+    /* Кнопка для открытия бокового меню */
+    .menu-toggle {
+        display: block;
+        background-color: #f1c40f;
+        color: #222;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px;
+        border-radius: 5px;
+
+        position: relative; /* Изменено с fixed на relative */
+        left: 15px;
+        top: 15px; /* Расположение кнопки относительно контейнера */
+        z-index: 10; /* Уменьшен z-index, чтобы элементы с большим z-index могли перекрывать */
+    }
+}
+
+/* Для экранов больше 768px */
+@media (min-width: 768px) {
+
+    .categories-sidebar {
+        display: none;
+    }
+}
+
+
+
+
+
+/* Кнопка в контейнере */
+.menu-toggle {
+    background-color: #f1c40f; /* Цвет кнопки */
+    color: #222;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+    border-radius: 5px;
+    position: absolute;
+
+    left: 50%; /* Центрируем кнопку */
+    transform: translateX(-50%); /* Корректировка для точного центрирования */
+}
+
+/* Для экранов меньше 768px */
+@media (max-width: 768px) {
+    .menu-container {
+        display: flex; /* Показываем контейнер для кнопки */
+    }
+
+    /* Стиль для бокового меню */
+    .categories-sidebar {
+        display: none; /* Скрыто по умолчанию */
+        position: fixed;
+        top: 0;
+        left: -250px; /* Скрыто слева, вне экрана */
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        transition: left 0.3s ease-in-out; /* Анимация сдвига */
+        padding: 15px;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Когда меню открыто, оно будет выезжать */
+    .categories-sidebar.open {
+        left: 0; /* Сдвигаем меню в видимую область */
+    }
+}
+
+/* Для экранов больше 768px */
+@media (min-width: 768px) {
+    .menu-container {
+        display: none; /* Скрываем кнопку на экранах больше 768px */
+    }
+
+    /* Блок категорий остаётся видимым */
+
+
+    .categories-sidebar {
+        display: none;
+    }
+}
+
+/* Стили для контейнера и кнопки */
+@media (max-width: 768px) {
+    .menu-container {
+        display: block;
+        width: 100%; /* Ширина контейнера 100% */
+        background-color: #222; /* Цвет фона контейнера */
+
+        margin-top: 70px; /* Опускаем блок на 20px ниже */
+
+        justify-content: center; /* Выравнивание кнопки по центру */
+        align-items: center; /* Вертикальное выравнивание */
+    }
+
+    .menu-toggle {
+        background-color: #f1c40f; /* Цвет кнопки */
+        color: #222; /* Цвет текста на кнопке */
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    /* Скрываем основной блок категорий */
+    #categories {
+        display: none;
+    }
+
+    .categories-sidebar {
+        display: none; /* Скрыто по умолчанию */
+        position: fixed;
+        top: 0;
+        left: -250px; /* Скрыто слева, вне экрана */
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        transition: left 0.3s ease-in-out; /* Анимация сдвига */
+        padding: 15px;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Когда меню открыто, оно будет выезжать */
+    .categories-sidebar.open {
+        left: 0;
+    }
+}
+
+/* Для экранов больше 768px */
+@media (min-width: 768px) {
+    .menu-container {
+        display: none; /* Скрыть контейнер с кнопкой на экранах больше 768px */
+    }
+
+    .categories-sidebar {
+        display: none;
+    }
+}

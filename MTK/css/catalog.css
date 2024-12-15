@@ -43,19 +43,19 @@
 /* Медиазапросы для адаптивности */
 @media (max-width: 1200px) {
     #product-list {
-        grid-template-columns: repeat(3, 1fr); /* 3 колонки для экранов шириной меньше 1200px */
+        grid-template-columns: repeat(4, 1fr); /* 3 колонки для экранов шириной меньше 1200px */
     }
 }
 
 @media (max-width: 900px) {
     #product-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки для экранов шириной меньше 900px */
+        grid-template-columns: repeat(3, 1fr); /* 2 колонки для экранов шириной меньше 900px */
     }
 }
 
 @media (max-width: 600px) {
     #product-list {
-        grid-template-columns: 1fr; /* 1 колонка для экранов шириной меньше 600px */
+        grid-template-columns: repeat(2, 1fr); /* 2 колонка для экранов шириной меньше 600px */
     }
 }
 
@@ -110,6 +110,3 @@
 .tech-item .view-details-btn {
     line-height: 1; /* Уменьшаем межстрочное расстояние между ценой и кнопкой */
 }
-
-
-

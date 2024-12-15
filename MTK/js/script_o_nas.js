@@ -248,20 +248,3 @@ sidebarButtons.forEach(button => {
         showInfo(category);
     });
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const firstButton = document.querySelector('.sidebar button');
-    if (firstButton) {
-        firstButton.classList.add('active');
-    }
-
-    // Бургер-меню
-    const burgerMenu = document.querySelector('.burger-menu');
-    const navbar = document.querySelector('.navbar');
-
-    burgerMenu.addEventListener('click', () => {
-        burgerMenu.classList.toggle('active');
-        navbar.classList.toggle('open');
-    });
-});

@@ -9,8 +9,6 @@
     font-size: 14px; /* Уменьшаем размер шрифта */
     margin-top: -15px; /* Уменьшаем отступ сверху у абзацев */
 
-
-
 }
 
 .product-page {
@@ -42,6 +40,7 @@
 .product-page .product-container {
     padding: 20px 0; /* Внутренний отступ сверху и снизу — 20px */
     display: flex;
+    gap: 20px;
     align-items: flex-start; /* Выравнивание по верхнему краю */
     justify-content: space-between; /* Распределение пространства */
 
@@ -107,7 +106,7 @@
 /* Блок информации о товаре */
 .product-page .product-details {
     flex: 5; /* Задает пропорциональную ширину блока информации */
-    padding-left: 20px; /* Внутренний отступ слева */
+
 }
 
 
@@ -128,10 +127,6 @@
 .product-page .product-details .product-status {
     color: #cfc12a; /* Зеленый цвет текста статуса товара */
     font-weight: bold; /* Жирное начертание */
-}
-
-.product-page .product-details .product-buttons {
-    margin: 20px 0; /* Вертикальный отступ сверху и снизу — 20px */
 }
 
 
@@ -278,6 +273,7 @@
     border: 1px solid #979696; /* Лёгкая рамка вокруг изображения. */
 
 }
+
 
 
 /* Контейнер таблицы */

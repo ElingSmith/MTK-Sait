@@ -1,39 +1,53 @@
 /* === Базовые стили для мобильных устройств (от 0 до 576px) === */
+/* === Базовые стили для мобильных устройств (от 0 до 576px) === */
 @media (max-width: 576px) {
-    /* Контейнеры */
+    /* Контейнер для всех элементов */
     .product-page .product-container {
-        flex-direction: column;
-        align-items: center;
+        display: flex; /* Используем Flexbox */
+        flex-direction: row; /* Элементы будут расположены горизонтально */
+        justify-content: space-between; /* Равномерное распределение пространства между блоками */
+        align-items: center; /* Выравнивание по вертикали */
         padding: 10px;
     }
 
+    /* Информация о продукте (название, цена и статус) */
+    .product-cratk_info {
+        flex: 1; /* Этот блок займет оставшееся пространство */
+        margin-right: 20px; /* Отступ справа, чтобы отделить от кнопок */
+    }
+
+    /* Контейнер для кнопок */
+    .product-buttons {
+        display: flex;
+        flex-direction: column; /* Кнопки будут расположены вертикально */
+        gap: 10px; /* Расстояние между кнопками */
+        align-items: flex-start; /* Кнопки выравниваются по левому краю */
+    }
+
+    /* Настройка ширины кнопок */
+    .product-buttons .buy-button,
+    .product-buttons .add-to-cart-button {
+        width: 100%; /* Кнопки занимают всю ширину контейнера */
+        max-width: 200px; /* Ограничиваем максимальную ширину кнопок */
+    }
+
+    /* Настройка других элементов */
     .product-page .product-images,
     .product-page .product-details {
         width: 100%;
-        flex: none;
-        margin-bottom: 15px;
     }
 
-    /* Главное изображение */
     .product-page .product-images .main-image img {
         width: 100%;
         height: auto;
     }
 
-    /* Галерея миниатюр */
-    .product-page .product-images .image-gallery {
-        display: none; /* Скрываем галерею миниатюр для упрощения интерфейса */
-    }
-
-    /* Текст и кнопки */
     .product-page .product-details .product-title {
         font-size: 20px;
-        text-align: center; /* Центрируем заголовок */
     }
 
     .product-page .product-details .product-price {
-        font-size: 18px;
-        text-align: center;
+        font-size: 16px;
     }
 
     .product-page .product-details .product-status {
@@ -41,24 +55,18 @@
         margin-top: 10px;
     }
 
-    .product-page .product-details .buy-button,
-    .product-page .product-details .add-to-cart-button {
-        width: 100%; /* Кнопки занимают всю ширину */
-        margin-bottom: 10px;
-    }
-
-    /* Таблица спецификаций */
     .product-page .product-specifications td {
-        font-size: 12px; /* Уменьшаем шрифт для компактного вида */
+        font-size: 12px;
         padding: 5px;
     }
 }
+
 
 /* === Стили для маленьких планшетов (от 577px до 768px) === */
 @media (min-width: 577px) and (max-width: 800px) {
     /* Контейнеры */
     .product-page .product-container {
-        flex-direction: column;
+
         padding: 20px;
     }
 
@@ -112,17 +120,34 @@
         font-size: 14px;
         padding: 8px;
     }
+
 }
 
 
+/* хуйня чтобы галерея миниатюр была с лева если окно больше и внизу если окно меншье*/
+/* (костыль который помогает этому работать) */
+@media (min-width: 801px) {
+  /* Для экранов 800px и больше — размещаем галерею слева от изображения */
+  .product-images {
+    display: flex;
+    flex-direction: row; /* Галерея и изображение будут расположены в ряд */
+  }
 
+  .product-images .main-image-container {
+    order: 2; /* Размещаем основное изображение справа */
+  }
+
+  .product-images .image-gallery {
+    order: 1; /* Галерея будет слева от изображения */
+  }
+}
 
 
 /* === Стили для средних устройств (от 769px до 1024px) === */
 @media (min-width: 769px) and (max-width: 1024px) {
     .product-page .product-container {
         flex-direction: row;
-        gap: 20px;
+
     }
 
     .product-page .product-images {

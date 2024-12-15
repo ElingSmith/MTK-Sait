@@ -6,9 +6,14 @@
     <title>MTK - Премиальная спецтехника</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/preloader.css">
+    <link rel="stylesheet" href="../css/categories.css">
+    <link rel="stylesheet" href="../css/categories_mobile.css">
+    <link rel="stylesheet" href="../css/burger_menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
 
 <div id="preloader">
     <div class="loader">
@@ -19,10 +24,10 @@
     </div>
 </div>
 
+<div class="parent">
     <header class="header">
         <div class="logo">
             <img src="../images/logo.png" alt="Логотип MTK">
-
         </div>
         <nav class="navbar">
             <a href="index.html">Главная</a>
@@ -33,39 +38,124 @@
         <div class="header-contact">
             <p>Телефон: +8 (800) 000 33 45</p>
         </div>
-        <!-- бургер-меню -->
-        <div class="burger-menu" onclick="toggleMenu()">
+
+        <div class="burger-menu-container">
+        <!-- Бургер-меню -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="burger-menu" onclick="toggleMenu()">
+
             <span></span>
             <span></span>
             <span></span>
-        </div>
-    </header>
+    </div>
 
+        <!-- Меню -->
+        <div class="burger-menu-content">
+            <div class="menu-level menu-main active" id="main-menu">
+                <ul>
+                    <li><a href="#" onclick="showSubMenu('spec-tekhnika')">
+                        Спецтехника
+                        <img src="../svg/strelka_podcategori.svg" alt="Arrow" class="arrow-icon">
+                    </a></li>
+                    <li><a href="#" onclick="showSubMenu('navese')">
+                        Навесное оборудование
+                        <img src="../svg/strelka_podcategori.svg" alt="Arrow" class="arrow-icon">
+                    </a></li>
+                    <li><a href="#">Коммерческие автомобили</a></li>
+                    <li><a href="#">Нерудные материалы</a></li>
+                    <li><a href="#">Вывоз грунта</a></li>
+                    <hr class="menu-divider">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="o_nas.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                    <hr class="menu-divider">
+                </ul>
+            </div>
 
-
-<section id="categories" class="categories">
-        <div class="category">
-            <a href="spectex.html" >
-            Спецтехника
-            </a>
-            <div class="submenu">
-                <div class="column">
-                    <div class="subcategory"><a href="catalog.html?category=pogruzchiki">Погрузчики</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=frontalnye">Фронтальные</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Телескопические</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=mini">Мини погрузчики</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=vilochnye" style="text-decoration: none;">Вилочные</a></div>
+            <!-- Подкатегория Спецтехника -->
+            <div class="menu-level" id="spec-tekhnika">
+                <div class="menu-header">
+                    <span>Спецтехника</span>
+                    <button class="back-button" onclick="backToMenu('main-menu')">
+                        <img src="../svg/strelka.svg" alt="Назад">
+                    </button>
                 </div>
-                <div class="column">
-                    <div class="subcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=ekskavator-pogruzchik">Дорожно-строительная техника</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=katki">Катки</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=bulldoziery">Бульдозеры</a></div>
-                    <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=greydery">Грейдеры</a></div>
+                <ul>
+                    <li><a href="catalog.html?category=pogruzchiki">Погрузчики</a>
+                        <ul class="">
+                            <li><a href="catalog.html?category=pogruzchiki&subcat=frontalnye">Фронтальные</a></li>
+                            <li><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Телескопические</a></li>
+                            <li><a href="catalog.html?category=pogruzchiki&subcat=mini">Мини погрузчики</a></li>
+                            <li><a href="catalog.html?category=pogruzchiki&subcat=vilochnye">Вилочные</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=ekskavator-pogruzchik">Дорожно-строительная техника</a>
+                        <ul class="">
+
+                            <li><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=katki">Катки</a></li>
+                            <li><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=bulldoziery">Бульдозеры</a></li>
+                            <li><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=greydery">Грейдеры</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Подкатегория Навесное оборудование -->
+            <div class="menu-level" id="navese">
+                <div class="menu-header">
+                    <span>Навесное оборудование</span>
+                    <button class="back-button" onclick="backToMenu('main-menu')">
+                        <img src="../svg/strelka.svg" alt="Назад">
+                    </button>
                 </div>
+                <ul>
+                    <li><a href="#">Быстросъемные каретки</a></li>
+                    <li><a href="#">Виброплиты</a></li>
+                    <li><a href="#">Вилы паллетные</a></li>
+                    <li><a href="#">Гидромолоты</a></li>
+                    <li><a href="#">Захваты</a></li>
+                    <li><a href="#">Ковши</a></li>
+                    <li><a href="#">Ковши миксеры</a></li>
+                </ul>
             </div>
         </div>
+    </div>
 
-     <div class="category">
+
+
+    </header>
+    </div>
+
+
+
+
+ <section id="categories" class="categories">
+    <div class="category">
+        <a href="spectex.html" >
+        Спецтехника
+        </a>
+        <div class="submenu">
+            <div class="column">
+                <div class="subcategory"><a href="catalog.html?category=pogruzchiki">Погрузчики</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=frontalnye">Фронтальные</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=teleskopicheskie">Телескопические</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=mini">Мини погрузчики</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=pogruzchiki&subcat=vilochnye" style="text-decoration: none;">Вилочные</a></div>
+            </div>
+            <div class="column">
+                <div class="subcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=ekskavator-pogruzchik">Дорожно-строительная техника</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=katki">Катки</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=bulldoziery">Бульдозеры</a></div>
+                <div class="subsubcategory"><a href="catalog.html?category=dorozhno-stroitelnaya&subcat=greydery">Грейдеры</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
         Навесное оборудование
         <div class="submenu" style="left: -50%;">
             <div class="column">
@@ -94,15 +184,21 @@
                 <div class="subsubcategory">Ямобуры</div>
             </div>
         </div>
-     </div>
-
-
-
+    </div>
 
     <div class="category">Коммерческие автомобили</div>
     <div class="category">Нерудные материалы</div>
     <div class="category">Вывоз грунта</div>
 </section>
+
+
+<!-- Контейнер для кнопки, будет скрыт на экранах больше 768px -->
+<div class="menu-container"></div>
+
+
+
+
+
 
 
     <section class="hero">
@@ -178,14 +274,10 @@
     <!-- Скрипт для управления бургер-меню -->
     <script src="../js/script.js"></script>
     <script src="../js/preloader.js"></script>
-    <script src="product.js"></script>
-    <script>
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            const burgerMenu = document.querySelector('.burger-menu');
-            navbar.classList.toggle('open');
-            burgerMenu.classList.toggle('active');
-        }
-    </script>
+    <script src="../js/preloader.js"></script>
+    <script src="../js/category_mobile.js"></script>
+    <script src="../js/burger-menu.js"></script>
+
+
 </body>
 </html>

@@ -71,7 +71,7 @@ function searchItems() {
     if (foundItems === 0) {
         const noResultItem = document.createElement("li");
         noResultItem.classList.add("dropdown-item", "no-results");
-        noResultItem.textContent = "Совпадений не найдено";
+        noResultItem.textContent = "Совпадений нe найдено";
         dropdownContainer.appendChild(noResultItem);
     }
 
