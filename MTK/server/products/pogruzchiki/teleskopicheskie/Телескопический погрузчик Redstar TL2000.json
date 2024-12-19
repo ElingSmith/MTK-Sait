@@ -1,5 +1,8 @@
 {
-    "product_name": "Redstar TL2000",
+    "category": "spetstekhnika",
+    "subcategory": "pogruzchiki",
+    "subsubcategory": "frontalnye",
+    "product_name": "ss TL2000",
     "price": 100000000,
     "image": "../images/MTK 926 (1).jpeg",
     "characteristics": {

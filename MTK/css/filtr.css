@@ -1,7 +1,7 @@
 /* Основной контейнер фильтров */
 .filters-container {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #222222;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -143,4 +143,31 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]:active::-webkit-slider-thumb {
     background: #e67e22;
+}
+
+
+#slider-container {
+    margin: 20px 0;
+    max-width: 300px;
+    width: 100%;
+}
+
+.slider-wrapper {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.filter-input {
+    width: 80px;
+    margin-left: 10px;
+}
+
+/* Контейнер фильтра с ограниченной шириной */
+.filters-container {
+
+    max-width: 285px; /* Ограничиваем ширину */
+    margin: 10px; /* Центрируем по горизонтали */
 }

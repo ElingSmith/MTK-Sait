@@ -1,5 +1,8 @@
 {
-    "product_name": "RS TL2500",
+    "category": "spetstekhnika",
+    "subcategory": "pogruzchiki",
+    "subsubcategory": "frontalnye",
+    "product_name": "ss TL2500",
     "price": 100000000,
     "image": "../images/MTK 926 (1).jpeg",
     "characteristics": {

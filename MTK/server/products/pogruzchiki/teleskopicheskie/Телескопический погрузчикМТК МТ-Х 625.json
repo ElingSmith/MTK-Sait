@@ -1,5 +1,8 @@
 {
-    "product_name": "MTK MT-X 625",
+    "category": "spetstekhnika",
+    "subcategory": "pogruzchiki",
+    "subsubcategory": "frontalnye",
+    "product_name": "MTK MT-X крабик 62ssss5",
     "price": 100000000,
     "image": "../images/MTK 926 (1).jpeg",
     "characteristics": {
@@ -75,6 +78,7 @@
         "Мощность двигателя, л.с.": 120,
         "Масса (вес), кг": 7000,
         "Максимальная высота подъема": 10,
-        "Максимальная высота разгрузки": 9
+        "Максимальная высота разгрузки": 9,
+         "Крабовый ход": true
     }
 }

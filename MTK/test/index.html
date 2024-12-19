@@ -3,88 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Динамичное бургер-меню с анимацией</title>
-    <link rel="stylesheet" href="../css/burger_menu.css">
+    <title>Динамический фильтр для категорий</title>
+    <link rel="stylesheet" href="filter_nouislider.css">
 </head>
 <body>
-    <div class="burger-menu-container">
-        <!-- Бургер-меню -->
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+<h1>Фильтры для каталога</h1>
 
-    <div class="burger-menu" onclick="toggleMenu()">☰</div>
+<form id="filter-form">
+    <h3>Выберите параметры:</h3>
+    <div id="sliders" class="filters-container"></div>
+    <button type="button" id="apply-filters">Применить фильтр</button>
+    <button type="button" id="reset-filters">Сбросить фильтры</button>
+</form>
 
-        <!-- Меню -->
-        <div class="burger-menu-content">
-            <div class="menu-level menu-main active" id="main-menu">
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="o_nas.html">О нас</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="cart.html">Корзина</a></li>
-                    <li><a href="#" onclick="showSubMenu('spec-tekhnika')">
-                        Спецтехника
-                        <img src="../svg/strelka_podcategori.svg" alt="Arrow" class="arrow-icon">
-                    </a></li>
-                    <li><a href="#" onclick="showSubMenu('navese')">
-                        Навесное оборудование
-                        <img src="../svg/strelka_podcategori.svg" alt="Arrow" class="arrow-icon">
-                    </a></li>
-                    <li><a href="#">Коммерческие автомобили</a></li>
-                    <li><a href="#">Нерудные материалы</a></li>
-                    <li><a href="#">Вывоз грунта</a></li>
-                </ul>
-            </div>
+<h2>Сформированный запрос:</h2>
+<pre id="output"></pre>
 
-            <!-- Подкатегория Спецтехника -->
-            <div class="menu-level" id="spec-tekhnika">
-                <div class="menu-header">
-                    <span>Спецтехника</span>
-                    <button class="back-button" onclick="backToMenu('main-menu')">
-                        <img src="../svg/strelka.svg" alt="Назад">
-                    </button>
-                </div>
-                <ul>
-                    <li><a href="#">Погрузчики</a>
-                        <ul class="submenu">
-                            <li><a href="#">Фронтальные</a></li>
-                            <li><a href="#">Телескопические</a></li>
-                            <li><a href="#">Мини погрузчики</a></li>
-                            <li><a href="#">Вилочные</a></li>
-                        </ul>
-                    </li>
+<script src="filter_noUiSlider.js"></script>
+<script src="filters.js"></script>
 
-
-                    <li><a href="#">Дорожно-строительная техника</a>
-                        <ul class="submenu">
-                            <li><a href="#">Катки</a></li>
-                            <li><a href="#">Бульдозеры</a></li>
-                            <li><a href="#">Грейдеры</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Подкатегория Навесное оборудование -->
-            <div class="menu-level" id="navese">
-                <div class="menu-header">
-                    <span>Навесное оборудование</span>
-                    <button class="back-button" onclick="backToMenu('main-menu')">
-                        <img src="../svg/strelka.svg" alt="Назад">
-                    </button>
-                </div>
-                <ul>
-                    <li><a href="#">Быстросъемные каретки</a></li>
-                    <li><a href="#">Виброплиты</a></li>
-                    <li><a href="#">Вилы паллетные</a></li>
-                    <li><a href="#">Гидромолоты</a></li>
-                    <li><a href="#">Захваты</a></li>
-                    <li><a href="#">Ковши</a></li>
-                    <li><a href="#">Ковши миксеры</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script src="burger_menu.js"></script>
 </body>
 </html>

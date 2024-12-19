@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Бургер-меню</title>
-  <style>
-    /* Стили для проверки */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бургер-меню</title>
+    <style>
+        /* Стили для проверки */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-    .burger-menu {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      width: 30px;
-      margin: 20px;
-    }
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            margin: 20px;
+        }
 
-    .burger-menu span {
-      background-color: #333;
-      height: 3px;
-      margin: 5px 0;
-      width: 100%;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+        .burger-menu span {
+            background-color: #333;
+            height: 3px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
 
-    .burger-menu-content {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-    }
+        .burger-menu-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
 
-    .burger-menu-content.active {
-      transform: translateX(0);
-    }
+        .burger-menu-content.active {
+            transform: translateX(0);
+        }
 
-    .burger-menu-content ul {
-      list-style: none;
-      padding: 20px;
-    }
+        .burger-menu-content ul {
+            list-style: none;
+            padding: 20px;
+        }
 
-    .burger-menu-content ul li {
-      padding: 15px 0;
-    }
+        .burger-menu-content ul li {
+            padding: 15px 0;
+        }
 
-    .burger-menu-content ul li a {
-      text-decoration: none;
-      font-size: 18px;
-      color: #333;
-    }
-  </style>
+        .burger-menu-content ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-  <div class="burger-menu" onclick="toggleMenu()">
+<div class="burger-menu" onclick="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
-  </div>
+</div>
 
-  <div class="burger-menu-content" id="burger-menu-content">
+<div class="burger-menu-content" id="burger-menu-content">
     <ul>
-      <li><a href="#">Главная</a></li>
-      <li><a href="#">О нас</a></li>
-      <li><a href="#">Контакты</a></li>
-      <li><a href="#">Корзина</a></li>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Корзина</a></li>
     </ul>
-  </div>
+</div>
 
-  <script>
+<script>
     const burgerMenu = document.querySelector('.burger-menu');
     const menuContent = document.getElementById('burger-menu-content');
 
     function toggleMenu() {
-      burgerMenu.classList.toggle('active');
-      menuContent.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+        menuContent.classList.toggle('active');
     }
-  </script>
+</script>
 </body>
 </html>

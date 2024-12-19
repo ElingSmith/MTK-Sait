@@ -4,9 +4,10 @@
     grid-template-columns: repeat(4, 1fr); /* 4 колонки по умолчанию */
     gap: 20px; /* Расстояние между товарами */
     margin-top: 20px;
-    max-width: 1600px; /* Максимальная ширина контейнера */
+    max-width: 1200px; /* Максимальная ширина контейнера */
     margin-left: auto;
     margin-right: auto; /* Центрируем контейнер */
+    width: 80%;
 }
 
 #loading-indicator {
@@ -83,6 +84,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+
 }
 
 

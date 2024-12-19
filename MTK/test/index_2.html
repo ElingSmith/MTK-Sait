@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамический фильтр для категорий</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
+    <style>
+        #slider-container {
+            margin: 20px 0;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .slider-wrapper {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .filter-input {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        /* Контейнер фильтра с ограниченной шириной */
+        .filters-container {
+            max-width: 500px; /* Ограничиваем ширину */
+            margin: 0 auto; /* Центрируем по горизонтали */
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Фильтры для каталога</h1>
+
+<form id="filter-form">
+    <h3>Выберите параметры:</h3>
+    <div id="sliders" class="filters-container"></div>
+
+    <h4>Выберите дополнительные опции:</h4>
+    <div id="options" class="filters-container"></div>
+
+    <button type="button" id="apply-filters">Применить фильтр</button>
+    <button type="button" id="reset-filters">Сбросить фильтры</button>
+</form>
+
+<h2>Сформированный запрос:</h2>
+<pre id="output"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+<script>
+    // Данные с сервера
+    const filterConfig = {
+        spetstekhnika: {
+            pogruzchiki: {
+                teleskopicheskie: {
+                    price: {min: 1500000, max: 10000000, step: 10000, unit: "Цена, руб"},
+                    capacity: {min: 700, max: 3200, step: 50, unit: "Грузоподъемность (кг)"},
+                    bucket_volume: {min: 0, max: 2, step: 0.1, unit: "Объем ковша (м³)"},
+                    weight: {min: 2400, max: 11500, step: 100, unit: "Масса (кг)"},
+                    power: {min: 30, max: 130, step: 5, unit: "Мощность двигателя, л.с."},
+                    lifting_height: {min: 2900, max: 11000, step: 100, unit: "Максимальная высота подъема"},
+                    unloading_height: {min: 2400, max: 9000, step: 100, unit: "Максимальная высота разгрузки"},
+                    drive_type: {
+                        options: [
+                            {value: "full_drive", label: "Полный привод"},
+                            {value: "front_drive", label: "Передний привод"},
+                            {value: "rear_drive", label: "Задний привод"}
+                        ],
+                        unit: "Тип привода"
+                    },
+                    steering_mode: {
+                        options: [
+                            {value: "front_wheel", label: "Передние колеса"},
+                            {value: "all_wheel", label: "Все колеса"},
+                            {value: "crab_walk", label: "Крабовый ход"}
+                        ],
+                        unit: "Режим управления"
+                    }
+                }
+            }
+        }
+    };
+
+    // Определяем текущие категории (например, получаем их из URL)
+    const currentCategory = "spetstekhnika";
+    const currentSubcat = "pogruzchiki";
+    const currentSubsubcat = "teleskopicheskie";
+
+    // Получаем нужную конфигурацию
+    const currentFilters =
+        filterConfig[currentCategory]?.[currentSubcat]?.[currentSubsubcat] || {};
+
+    // Инициализация фильтров
+    function createSlider(container, id, min, max, step, unit) {
+        const sliderWrapper = document.createElement("div");
+        sliderWrapper.classList.add("slider-wrapper");
+        sliderWrapper.innerHTML = `
+        <label>${unit}:</label>
+        <div id="${id}-slider"></div>
+        <div>
+          <input type="number" id="${id}-input-min" class="filter-input" value="${min}" />
+          <span> - </span>
+          <input type="number" id="${id}-input-max" class="filter-input" value="${max}" />
+        </div>
+      `;
+        container.appendChild(sliderWrapper);
+
+        const slider = document.getElementById(`${id}-slider`);
+        noUiSlider.create(slider, {
+            start: [min, max],
+            connect: true,
+            range: {min: min, max: max},
+            step: step,
+        });
+
+        // Обновляем значения при изменении ползунка
+        slider.noUiSlider.on("update", (values) => {
+            document.getElementById(`${id}-input-min`).value = parseFloat(values[0]).toFixed(step < 1 ? 1 : 0);
+            document.getElementById(`${id}-input-max`).value = parseFloat(values[1]).toFixed(step < 1 ? 1 : 0);
+        });
+
+        // Обновляем ползунок при изменении вручную
+        document.getElementById(`${id}-input-min`).addEventListener("input", (e) => {
+            slider.noUiSlider.set([e.target.value, null]);
+        });
+        document.getElementById(`${id}-input-max`).addEventListener("input", (e) => {
+            slider.noUiSlider.set([null, e.target.value]);
+        });
+
+        return slider;
+    }
+
+    // Функция для создания группы чекбоксов
+    function createCheckboxGroup(container, id, options, unit) {
+        const groupWrapper = document.createElement("div");
+        groupWrapper.classList.add("slider-wrapper");
+        groupWrapper.innerHTML = `
+        <label>${unit}:</label>
+        <div class="checkbox-group" id="${id}-group">
+            ${options.map(option => `
+                <label>
+                    <input type="checkbox" value="${option.value}" /> ${option.label}
+                </label>
+            `).join('')}
+        </div>
+      `;
+        container.appendChild(groupWrapper);
+    }
+
+    function renderFilters(filters) {
+        const slidersContainer = document.getElementById("sliders");
+        slidersContainer.innerHTML = ""; // Очищаем старые фильтры
+
+        const sliders = {};
+        for (const [key, config] of Object.entries(filters)) {
+            if (config.options) {
+                createCheckboxGroup(
+                    document.getElementById("options"),
+                    key,
+                    config.options,
+                    config.unit
+                );
+            } else {
+                sliders[key] = createSlider(
+                    slidersContainer,
+                    key,
+                    config.min,
+                    config.max,
+                    config.step,
+                    config.unit
+                );
+            }
+        }
+
+        return sliders;
+    }
+
+    // Инициализация фильтров для текущих категорий
+    const sliders = renderFilters(currentFilters);
+
+    // Обработка применения фильтров
+    document.getElementById("apply-filters").addEventListener("click", () => {
+        const filters = {};
+        for (const [key, slider] of Object.entries(sliders)) {
+            const values = slider.noUiSlider.get();
+            filters[`${key}_min`] = parseFloat(values[0]);
+            filters[`${key}_max`] = parseFloat(values[1]);
+        }
+
+        // Добавляем выбранные опции в фильтры
+        const options = document.querySelectorAll("#options input:checked");
+        options.forEach(option => {
+            if (!filters[option.name]) {
+                filters[option.name] = [];
+            }
+            filters[option.name].push(option.value);
+        });
+
+        const queryString = new URLSearchParams(filters).toString();
+        document.getElementById("output").innerText = `catalog.html?category=${currentCategory}&subcat=${currentSubcat}&subsubcat=${currentSubsubcat}&${queryString}`;
+    });
+
+    // Обработка сброса фильтров
+    document.getElementById("reset-filters").addEventListener("click", () => {
+        for (const [key, slider] of Object.entries(sliders)) {
+            slider.noUiSlider.set([currentFilters[key].min, currentFilters[key].max]);
+            document.getElementById(`${key}-input-min`).value = currentFilters[key].min;
+            document.getElementById(`${key}-input-max`).value = currentFilters[key].max;
+        }
+
+        // Сброс выбранных опций
+        const options = document.querySelectorAll("#options input");
+        options.forEach(option => option.checked = false);
+        document.getElementById("output").innerText = '';
+    });
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import re
 
 # Настройка драйвера
 options = webdriver.ChromeOptions()
@@ -72,8 +73,11 @@ while True:
         'characteristics': characteristics
     }
 
-    # Запись в JSON файл
-    with open(f'{product_name}.json', 'w', encoding='utf-8') as json_file:
+    # Преобразование имени продукта для безопасного использования в имени файла
+    product_name_safe = re.sub(r'[<>:"/\\|?*]', '_', product_name)
+
+    # Запись в JSON файл с безопасным именем
+    with open(f'{product_name_safe}.json', 'w', encoding='utf-8') as json_file:
         json.dump(output_data, json_file, ensure_ascii=False, indent=4)
 
 # Закрытие драйвера

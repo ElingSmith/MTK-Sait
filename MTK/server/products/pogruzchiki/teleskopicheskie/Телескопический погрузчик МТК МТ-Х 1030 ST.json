@@ -1,5 +1,8 @@
 {
-    "product_name": "МТК МТ-Х 625 Н4",
+    "category": "spetstekhnika",
+    "subcategory": "pogruzchiki",
+    "subsubcategory": "frontalnye",
+    "product_name": "МТК МТ-Х 6sss25 Н4",
     "price": 100000000,
     "image": "../images/MTK 926 (1).jpeg",
     "подъемные_характеристики": {

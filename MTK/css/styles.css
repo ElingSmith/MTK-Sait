@@ -11,10 +11,12 @@ body {
     color: #fff;
     line-height: 1.6;
 }
+
 .category a {
     text-decoration: none;
     color: inherit;
 }
+
 /* Элемент шапки */
 .header {
     position: fixed;
@@ -76,11 +78,6 @@ body {
 }
 
 
-
-
-
-
-
 /* Стили для открытого меню на мобильных устройствах */
 
 /* Анимация появления */
@@ -113,8 +110,6 @@ body {
     -webkit-backdrop-filter: blur(5px);
     animation: slideDownFadeIn 0.5s ease forwards;
 }
-
-
 
 
 /* При закрытии */
@@ -195,7 +190,7 @@ body {
     background-color: #111;
 }
 
-.popular-tech , .attachments h2 {
+.popular-tech, .attachments h2 {
     font-size: 36px;
     margin-bottom: 50px;
     font-weight: 700;
@@ -353,7 +348,7 @@ ul {
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     margin: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
@@ -435,14 +430,17 @@ ul {
 
 
     }
+
     .logo img {
         width: 100px;
     }
+
     .navbar {
         display: none;
 
 
     }
+
     .burger-menu {
         white-space: nowrap;
         display: flex;
@@ -451,17 +449,19 @@ ul {
     }
 
     .header-contact {
-    display: none;
+        display: none;
 
     }
 
     .hero {
         height: 60vh;
     }
+
     .hero h1 {
         font-size: 40px;
         margin-bottom: 15px;
     }
+
     .hero .search-box {
         flex-direction: column; /* Размещаем элементы вертикально */
         width: 100%; /* Строка поиска занимает всю ширину */
@@ -473,15 +473,19 @@ ul {
         padding: 8px 16px;
         font-size: 14px;
     }
+
     .popular-tech h2, .attachments h2 {
         font-size: 28px;
     }
+
     .product-container {
         grid-template-columns: repeat(2, 1fr); /* 2 колонки на экранах от 768px до 992px */
     }
+
     .tech-item, .attachment-item {
         width: 100%; /* Полная ширина карточки */
     }
+
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
@@ -495,45 +499,57 @@ ul {
     .logo img {
         width: 80px;
     }
+
     .hero {
         height: 50vh;
     }
+
     .hero h1 {
         font-size: 32px;
         margin-top: -100px; /* Поднимаем текст выше */
     }
+
     .search-box input {
         font-size: 14px;
     }
+
     .search-box button {
         font-size: 14px;
     }
+
     .category {
         padding: 6px 12px;
         font-size: 12px;
     }
+
     .popular-tech h2, .attachments h2 {
         font-size: 24px;
     }
+
     .product-container {
         grid-template-columns: 1fr; /* 1 колонка на экранах до 768px */
     }
+
     .tech-item, .attachment-item {
         width: 100%;
         padding: 15px; /* Уменьшение паддингов */
     }
+
     .tech-item h3, .attachment-item h3 {
         font-size: 18px; /* Уменьшение размера шрифта */
         margin-bottom: 10px;
     }
+
     .tech-item p, .attachment-item p {
         font-size: 14px; /* Уменьшение размера шрифта */
         margin-bottom: 15px;
     }
+
     .tech-item button, .attachment-item button {
         padding: 10px 20px; /* Уменьшение паддингов */
         font-size: 14px; /* Уменьшение размера шрифта */
     }
+
     .footer-col {
         width: 100%;
     }
@@ -544,9 +560,11 @@ ul {
     .hero {
         height: 40vh;
     }
+
     .hero h1 {
         font-size: 28px;
     }
+
     .search-box input {
         padding: 10px 15px;
         font-size: 14px;
@@ -557,20 +575,23 @@ ul {
     .popular-tech h2, .attachments h2 {
         font-size: 20px;
     }
+
     .footer-col h4 {
         font-size: 18px;
     }
+
     .footer-col h4::before {
         width: 30px;
     }
 }
 
 /* Мобильные стили для подвала */
-@media(max-width: 767px){
-    .footer-col{
+@media (max-width: 767px) {
+    .footer-col {
         width: 50%;
         margin-bottom: 30px;
     }
+
     .search-box input {
         padding: 10px 15px;
         font-size: 14px;
@@ -578,10 +599,12 @@ ul {
         border-radius: 20px;
     }
 }
-@media(max-width: 574px){
-    .footer-col{
+
+@media (max-width: 574px) {
+    .footer-col {
         width: 100%;
     }
+
     .search-box input {
         padding: 10px 15px;
         font-size: 14px;
@@ -721,4 +744,4 @@ ul {
 }
 
 
- /* ---------------------------------------- */
+/* ---------------------------------------- */

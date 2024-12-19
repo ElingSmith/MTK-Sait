@@ -22,56 +22,55 @@
 </div>
 
 
-    <header class="header">
-        <div class="logo">
-            <img src="../images/logo.png" alt="Логотип MTK">
+<header class="header">
+    <div class="logo">
+        <img src="../images/logo.png" alt="Логотип MTK">
+    </div>
+    <!-- Бургер-меню для мобильных устройств -->
+    <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">Главная</a>
+        <a href="o_nas.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="cart.html">Корзина</a>
+    </nav>
+    <div class="header-contact">
+        <p>Телефон: +8 800 000 33 45</p>
+    </div>
+</header>
+
+
+<div class="spacer"></div>
+
+<section class="blok_o_nas">
+    <div class="blok-content">
+        <!-- Блок с кнопками -->
+        <div class="sidebar">
+            <button onclick="showInfo('CompanyInfo')" class="toggle-button">О компании MTK</button>
+            <button onclick="showInfo('logistics')" class="toggle-button">Услуги логистики из Китая в Россию</button>
+            <button onclick="showInfo('licenses')" class="toggle-button">Лицензии</button>
+            <button onclick="showInfo('reviews')" class="toggle-button">Отзывы</button>
+            <button onclick="showInfo('details')" class="toggle-button">Реквизиты</button>
         </div>
-        <!-- Бургер-меню для мобильных устройств -->
-        <div class="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="navbar">
-            <a href="index.html">Главная</a>
-            <a href="o_nas.html">О нас</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="cart.html">Корзина</a>
-        </nav>
-        <div class="header-contact">
-            <p>Телефон: +8 800 000 33 45</p>
-        </div>
-    </header>
-    
+
+        <!-- Контентная часть с текстом -->
+        <div class="content-display" id="content-display"></div>
+    </div>
+</section>
 
 
-    <div class="spacer"></div>
+<div class="spacer"></div>
 
-         <section class="blok_o_nas">
-            <div class="blok-content">
-                <!-- Блок с кнопками -->
-                <div class="sidebar">
-                    <button onclick="showInfo('CompanyInfo')" class="toggle-button">О компании MTK</button>
-                    <button onclick="showInfo('logistics')" class="toggle-button">Услуги логистики из Китая в Россию</button>
-                    <button onclick="showInfo('licenses')" class="toggle-button">Лицензии</button>
-                    <button onclick="showInfo('reviews')" class="toggle-button">Отзывы</button>
-                    <button onclick="showInfo('details')" class="toggle-button">Реквизиты</button>
-                </div>
+<footer class="footer">
+    <p>Контакты: +8 800 000 33 45 | Адрес: г. Краснодар, ул. Примерная, д. 1</p>
+</footer>
 
-                <!-- Контентная часть с текстом -->
-                <div class="content-display" id="content-display"></div>
-            </div>
-        </section>
-
-
-    <div class="spacer"></div>
-
-    <footer class="footer">
-        <p>Контакты: +8 800 000 33 45 | Адрес: г. Краснодар, ул. Примерная, д. 1</p>
-    </footer>
-
-    <script src="../js/script.js"></script>
-    <script src="../js/preloader.js"></script>
-    <script src="../js/script_o_nas.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/preloader.js"></script>
+<script src="../js/script_o_nas.js"></script>
 </body>
 </html>
